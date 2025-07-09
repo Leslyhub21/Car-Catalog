@@ -1,0 +1,54 @@
+/* General reset to avoid global pollution */
+.galeria * {
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.galeria {
+    padding-bottom: 2rem;
+}
+
+.gallery-title {
+    font-size: 2.5rem;
+    color: #000E4D;
+    letter-spacing: 1rem;
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+.gallery-sort-label {
+    font-weight: 300;
+}
+
+.gallery-sort-link {
+    font-weight: 300;
+    text-decoration: none;
+    color: #000;
+}
+
+.gallery-card {
+    height: 300px;
+}
+
+.gallery-image {
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+    will-change: opacity;
+}
+
+.gallery-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    will-change: opacity;
+}
+
+.gallery-card:hover .gallery-image {
+    opacity: 0.5;
+}
+
+.gallery-card:hover .gallery-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
