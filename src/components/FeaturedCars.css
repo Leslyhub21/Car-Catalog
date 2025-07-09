@@ -1,0 +1,147 @@
+.featured-container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.featured-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #000E4D;
+  letter-spacing: 1rem;
+  margin-bottom: 3rem;
+}
+
+.featured-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2.5rem;
+  border: 1px solid #CBAE67;
+  border-radius: 0.25rem;
+  background: none;
+  min-height: 420px;
+  box-sizing: border-box;
+}
+
+.featured-image, .featured-card-mini {
+  flex: 0 0 24%;
+  max-width: 24%;
+  min-width: 220px;
+  box-sizing: border-box;
+}
+
+.featured-image {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+
+}
+
+.featured-img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  box-shadow: none;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+}
+
+.featured-card-mini {
+  flex: 1 1 0;
+  max-width: 24%;
+  min-width: 220px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2.5rem 1.5rem;
+  margin: 0 0.5rem;
+  background: #fff;
+  border: 1px solid #CBAE67;
+  border-radius: 0.25rem;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  height: 100%;
+  min-height: unset;
+  overflow: hidden;
+}
+
+.featured-card-mini > * {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+.featured-card-mini h5 {
+  color: #1a1a2e;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.featured-card-mini p {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.featured-card-mini .price {
+  letter-spacing: 0.3rem;
+  color: #1a1a2e;
+  margin: 1.5rem 0 1rem 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.featured-card-mini button {
+  background-color: #0a1440;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 0;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  border-radius: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 0.3rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 1.5rem;
+}
+
+.featured-card-mini button:hover {
+  background-color: #000E4D;
+}
+
+@media (max-width: 1200px) {
+  .featured-row {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem 0;
+  }
+  .featured-image, .featured-card-mini {
+    max-width: 45vw;
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-row {
+    flex-direction: column;
+    align-items: center ;
+    padding: 1rem 0;
+  }
+  .featured-card-mini, .featured-image {
+    max-width: 90vw;
+    min-width: unset;
+  }
+}
