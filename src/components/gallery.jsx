@@ -5,154 +5,87 @@ const Gallery = () => {
   return (
     <div className="container-fluid mt-4">
       <div className="container mb-3">
-        <h1 className="text-center">• LATEST CARS •</h1>
+        <h1
+          className="text-center"
+          style={{
+            fontSize: '2.5rem',
+            color: '#000E4D',
+            letterSpacing: '1rem',
+            marginBottom: '3rem',
+            fontWeight: 300 
+          }}
+        >
+          • LATEST CARS •
+        </h1>
       </div>
 
-      {/* Barra de filtros */}
       <div className="d-flex justify-content-center flex-wrap gap-3 mb-4">
-        <span className="fw-bold">SORT BY:</span>
-        <a href="#" className="text-decoration-none text-dark">Most Recent</a>
-        <a href="#" className="text-decoration-none text-dark">Most Popular</a>
-        <a href="#" className="text-decoration-none text-dark">Alphabetical</a>
-        <a href="#" className="text-decoration-none text-dark">Highest Price</a>
-        <a href="#" className="text-decoration-none text-dark">Lowest Price</a>
+        <span style={{fontWeight: 300 }} className="fw-bold">SORT BY:</span>
+        <a href="#" style={{fontWeight: 300 }} className="text-decoration-none text-dark">MOST RECENT</a>
+        <a href="#" style={{fontWeight: 300 }} className="text-decoration-none text-dark">MOST POPULAR</a>
+        <a href="#" style={{fontWeight: 300 }} className="text-decoration-none text-dark">ALPHABETICAL</a>
+        <a href="#" style={{fontWeight: 300 }} className="text-decoration-none text-dark">HIGHEST PRICE</a>
+        <a href="#" style={{fontWeight: 300 }} className="text-decoration-none text-dark">LOWEST PRICE</a>
       </div>
 
-      {/* Galería */}
       <div className="row g-0">
-        <div className="col-6 col-md-3">
-          <div className="position-relative overflow-hidden fixed-box">
-            <img
-              src="src/assets/carro1.jpg"
-              alt="Toyota Supra"
-              className="w-100 h-100 object-cover"
-            />
-            <div className="overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white text-center">
-              <h5>Toyota Supra</h5>
-              <p>$50,000</p>
+        {[
+          { src: "src/assets/carro1.jpg", name: "Ford Camioneta", price: "$50,000" },
+          { src: "src/assets/carro2.jpg", name: "Nissan tsuru", price: "$45,000" },
+          { src: "src/assets/carro3.jpg", name: "Chevrolet Camaro", price: "$47,000" },
+          { src: "src/assets/carro5.jpg", name: "WolksWagen Combi", price: "$80,000" },
+          { src: "src/assets/carro6.jpg", name: "BMW M4", price: "$70,000" },
+          { src: "src/assets/carro7.jpg", name: "Audi R8", price: "$130,000" },
+          { src: "src/assets/carro8.jpg", name: "Vocho", price: "$60,000" },
+          { src: "src/assets/carro4.jpg", name: "Chevrolet Ranger", price: "$200,000" },
+        ].map((car, index) => (
+          <div key={index} className="col-6 col-md-3">
+            <div className="position-relative overflow-hidden fixed-box">
+              <img
+                src={car.src}
+                alt={car.name}
+                loading="lazy"
+                className="w-100 h-100 object-cover"
+              />
+              <div className="overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white text-center">
+                <h5>{car.name}</h5>
+                <p>{car.price}</p>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div className="col-6 col-md-3">
-          <div className="position-relative overflow-hidden fixed-box">
-            <img
-              src="src/assets/carro2.jpg"
-              alt="Ford Mustang"
-              className="w-100 h-100 object-cover"
-            />
-            <div className="overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white text-center">
-              <h5>Ford Mustang</h5>
-              <p>$45,000</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-6 col-md-3">
-          <div className="position-relative overflow-hidden fixed-box">
-            <img
-              src="src/assets/carro3.jpg"
-              alt="Chevrolet Camaro"
-              className="w-100 h-100 object-cover"
-            />
-            <div className="overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white text-center">
-              <h5>Chevrolet Camaro</h5>
-              <p>$47,000</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-6 col-md-3">
-          <div className="position-relative overflow-hidden fixed-box">
-            <img
-              src="src/assets/carro5.jpg"
-              alt="Nissan GTR"
-              className="w-100 h-100 object-cover"
-            />
-            <div className="overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white text-center">
-              <h5>Nissan GTR</h5>
-              <p>$80,000</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-6 col-md-3">
-          <div className="position-relative overflow-hidden fixed-box">
-            <img
-              src="src/assets/carro6.jpg"
-              alt="BMW M4"
-              className="w-100 h-100 object-cover"
-            />
-            <div className="overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white text-center">
-              <h5>BMW M4</h5>
-              <p>$70,000</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-6 col-md-3">
-          <div className="position-relative overflow-hidden fixed-box">
-            <img
-              src="src/assets/carro7.jpg"
-              alt="Audi R8"
-              className="w-100 h-100 object-cover"
-            />
-            <div className="overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white text-center">
-              <h5>Audi R8</h5>
-              <p>$130,000</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-6 col-md-3">
-          <div className="position-relative overflow-hidden fixed-box">
-            <img
-              src="src/assets/carro8.jpg"
-              alt="Mazda RX-7"
-              className="w-100 h-100 object-cover"
-            />
-            <div className="overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white text-center">
-              <h5>Mazda RX-7</h5>
-              <p>$60,000</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-6 col-md-3">
-          <div className="position-relative overflow-hidden fixed-box">
-            <img
-              src="src/assets/carro4.jpg"
-              alt="Lamborghini Huracán"
-              className="w-100 h-100 object-cover"
-            />
-            <div className="overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white text-center">
-              <h5>Lamborghini Huracán</h5>
-              <p>$200,000</p>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
 
-      {/* Estilos personalizados */}
       <style>{`
+        * {
+          backface-visibility: hidden;
+          transform: translateZ(0);
+        }
+
         .fixed-box {
           height: 300px;
         }
+
         .object-cover {
           object-fit: cover;
         }
-        .fixed-box img {
+
+        .fixed-box img,
+        .overlay {
           transition: opacity 0.3s ease;
+          will-change: opacity;
         }
+
         .overlay {
           background-color: rgba(0, 0, 0, 0.6);
           opacity: 0;
-          transition: opacity 0.3s ease;
           pointer-events: none;
         }
+
         .fixed-box:hover img {
           opacity: 0.5;
         }
+
         .fixed-box:hover .overlay {
           opacity: 1;
           pointer-events: auto;
