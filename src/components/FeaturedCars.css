@@ -1,0 +1,116 @@
+.featured-container {
+  padding: 40px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.featured-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #000E4D;
+  letter-spacing: 1rem;
+  margin-bottom: 3rem;
+}
+
+.featured-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  border: 3px solid #00000099;
+  border-radius: 1rem;
+  padding: 2rem 1rem;
+  background: none;
+}
+
+.featured-image, .featured-card-mini {
+  flex: 0 0 23%;
+  max-width: 24%;
+  min-width: 220px;
+  box-sizing: border-box;
+}
+
+.featured-img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.featured-card-mini {
+  flex: 0 0 23%;
+  max-width: 23%;
+  min-width: 250px;
+  width: 300px;
+  padding: 3.5rem;
+  margin: 0 auto;
+  background: #fff;
+  border: 2px solid #CBAE67;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.featured-card-mini h5 {
+  color: #000E4D;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
+.featured-card-mini p {
+  font-size: 0.95rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.featured-card-mini .price {
+  letter-spacing: 0.3rem;
+  color: #000;
+  margin: 1rem 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.featured-card-mini button {
+  background-color: #000E4D;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 2rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.featured-card-mini button:hover {
+  background-color: #00196a;
+}
+
+@media (max-width: 1200px) {
+  .featured-row {
+    flex-wrap: wrap;
+    gap: 1rem;
+    
+  }
+  .featured-image, .featured-card-mini {
+    max-width: 45vw;
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-row {
+    flex-direction: column;
+    align-items: center ;
+  }
+  .featured-card-mini, .featured-image {
+    max-width: 90vw;
+    min-width: unset;
+  }
+}
