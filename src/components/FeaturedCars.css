@@ -19,6 +19,7 @@
   gap: 2.5rem;
   border: 1px solid #CBAE67;
   border-radius: 0.25rem;
+  padding: 2.5rem 0;
   background: none;
   min-height: 420px;
   box-sizing: border-box;
@@ -35,7 +36,7 @@
   display: flex;
   align-items: stretch;
   justify-content: center;
-
+  height: 150%;
 }
 
 .featured-img {
