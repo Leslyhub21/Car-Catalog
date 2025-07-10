@@ -12,9 +12,13 @@ function App() {
   return (
     <>
       <Navbar/>
+      <br />
       <Seccion01/>
+      <br />
       <FeaturedCars/>
+      <br />
       <Gallery></Gallery>
+      <br />
 
     </>
   )
