@@ -9,17 +9,19 @@
   color: #000E4D;
   letter-spacing: 1rem;
   margin-bottom: 3rem;
+      font-weight: 300;
+
 }
 
 .featured-row {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch; /* Asegura que los hijos ocupen toda la altura */
   gap: 2.5rem;
   border: 1px solid #CBAE67;
   border-radius: 0.25rem;
-  padding: 2.5rem 0;
+  padding: 0; /* Elimina padding vertical para que la imagen toque los bordes */
   background: none;
   min-height: 420px;
   box-sizing: border-box;
@@ -36,7 +38,7 @@
   display: flex;
   align-items: stretch;
   justify-content: center;
-  height: 150%;
+  height: 100%; /* Ocupa toda la altura del contenedor */
 }
 
 .featured-img {
@@ -44,7 +46,7 @@
   max-width: 100%;
   border-radius: 0;
   box-shadow: none;
-  height: 100%;
+  height: 100%; /* Ocupa toda la altura del contenedor */
   object-fit: cover;
   margin: 0;
 }
@@ -56,7 +58,7 @@
   width: 100%;
   box-sizing: border-box;
   padding: 2.5rem 1.5rem;
-  margin: 0 0.5rem;
+  margin: 3.5rem 0.5rem; /* Margen vertical para separar del borde superior e inferior */
   background: #fff;
   border: 1px solid #CBAE67;
   border-radius: 0.25rem;
@@ -66,7 +68,7 @@
   align-items: center;
   text-align: center;
   justify-content: center;
-  height: 100%;
+  height: calc(100% - 3rem); /* Ajusta la altura para compensar el margen vertical */
   min-height: unset;
   overflow: hidden;
 }
@@ -121,6 +123,62 @@
 
 .featured-card-mini button:hover {
   background-color: #000E4D;
+}
+
+/* Modal para imagen expandida */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-img-container {
+  position: relative;
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-img {
+  max-width: 80vw;
+  max-height: 80vh;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: #0a1440;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.modal-close:hover {
+  background: #CBAE67;
+  color: #0a1440;
 }
 
 @media (max-width: 1200px) {
