@@ -25,7 +25,7 @@ const Gallery = () => {
           { src: "src/assets/carro1.jpg", name: "Ford Camioneta", price: "$50,000" },
           { src: "src/assets/carro2.jpg", name: "Nissan tsuru", price: "$45,000" },
           { src: "src/assets/carro3.jpg", name: "Chevrolet Camaro", price: "$47,000" },
-          { src: "src/assets/carro5.jpg", name: "WolksWagen Combi", price: "$80,000" },
+          { src: "src/assets/carro9.jpg", name: "WolksWagen Combi", price: "$80,000" },
           { src: "src/assets/carro6.jpg", name: "BMW M4", price: "$70,000" },
           { src: "src/assets/carro7.jpg", name: "Audi R8", price: "$130,000" },
           { src: "src/assets/carro8.jpg", name: "Vocho", price: "$60,000" },
