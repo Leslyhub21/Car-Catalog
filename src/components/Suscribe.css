@@ -1,0 +1,109 @@
+.suscribe-container {
+    display: flex;
+    width: 100%;
+    min-height: 400px;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    padding: 0 10px;
+}
+
+.suscribe-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.suscribe-box {
+    padding: 40px;
+    max-width: 450px;
+    text-align: left;
+    position: relative;
+    clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%, 10% 50%);
+    background-color: #fff;
+    z-index: 3;
+    margin-right: -50px;
+    border: 4px solid goldenrod;
+}
+
+/* Doble borde usando ::before */
+.suscribe-box::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid goldenrod;
+    clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%, 10% 50%);
+    z-index: -1;
+    background-color: transparent;
+}
+
+.suscribe-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.suscribe-text {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.suscribe-right {
+    flex: 1;
+    background-image: url('../assets/carro3.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.suscribe-form {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px 30px;
+    border: 1px solid #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.suscribe-input {
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+.suscribe-input::placeholder {
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.suscribe-button {
+    padding: 10px;
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    letter-spacing: 3px;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+}
+
+.suscribe-button:hover {
+    background: #fff;
+    color: #000;
+}

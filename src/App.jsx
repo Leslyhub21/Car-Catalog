@@ -1,6 +1,7 @@
   import './App.css'
 import Navbar from './components/Navbar'
 import Seccion01 from './components/Seccion01'
+import Suscribe from './components/Suscribe'
 import FeaturedCars from './components/feacturesCard'
 import Gallery from './components/gallery'
 
@@ -17,7 +18,9 @@ function App() {
       <br />
       <FeaturedCars/>
       <br />
-      <Gallery></Gallery>
+      <Gallery />
+      <br />
+      <Suscribe />
       <br />
 
     </>
