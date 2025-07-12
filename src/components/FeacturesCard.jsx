@@ -18,30 +18,35 @@ const FeaturedCars = () => {
     <div className="featured-container">
       <h2 className="featured-title">• FEATURES CARS •</h2>
       <div className="featured-row ">
-        {/* Imagen 1 */}
+        {}
         <div className="featured-image" onClick={() => handleImgClick(carro1)} style={{cursor: 'pointer'}}>
           <img src={carro1} alt="Car 1" className="featured-img" />
         </div>
-        {/* Card 1 */}
+        {}
         <div className="featured-card-mini">
           <h5>Lorem Ipsum</h5>
-          <p>
+          <p className='price1'>
             "Lorem ipsum dolor sit amet, consectetur, sed do eiusmod tempor incididunt"
           </p>
-          <p className="price">P r i c e €</p>
+          <p className="price">
+            P r i c e €
+          </p>
           <button>Read More</button>
         </div>
-        {/* Imagen 2 */}
+        {}
         <div className="featured-image" onClick={() => handleImgClick(carro1)} style={{cursor: 'pointer'}}>
           <img src={carro1} alt="Car 2" className="featured-img" />
         </div>
-        {/* Card 2 */}
+        {}
         <div className="featured-card-mini">
           <h5>Lorem Ipsum</h5>
-          <p>
+          <p className='price1'>
             "Lorem ipsum dolor sit amet, consectetur, sed do eiusmod tempor incididunt"
           </p>
-          <p className="price">P r i c e €</p>
+          <p className="price">
+            P r i c e 
+            €
+          </p>
           <button>Read More</button>
         </div>
       </div>
