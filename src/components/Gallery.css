@@ -1,4 +1,3 @@
-/* General reset to avoid global pollution */
 .galeria * {
     backface-visibility: hidden;
     transform: translateZ(0);
@@ -6,34 +5,56 @@
 
 .galeria {
     padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .gallery-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #000E4D;
-    letter-spacing: 1rem;
-    margin-bottom: 3rem;
-    font-weight: 300;
+    letter-spacing: 0.5rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+@media (min-width: 768px) {
+    .gallery-title {
+        font-size: 2.5rem;
+        letter-spacing: 1rem;
+    }
 }
 
 .gallery-sort-label {
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .gallery-sort-link {
-    font-weight: 300;
+    font-weight: 400;
     text-decoration: none;
     color: #000;
+    transition: color 0.3s ease;
+}
+
+.gallery-sort-link:hover {
+    color: #007bff;
 }
 
 .gallery-card {
-    height: 300px;
+    height: 250px;
+    border-radius: 0px;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .gallery-card {
+        height: 300px;
+    }
 }
 
 .gallery-image {
     object-fit: cover;
-    transition: opacity 0.3s ease;
-    will-change: opacity;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    will-change: opacity, transform;
 }
 
 .gallery-overlay {
@@ -46,6 +67,7 @@
 
 .gallery-card:hover .gallery-image {
     opacity: 0.5;
+    transform: scale(1.05);
 }
 
 .gallery-card:hover .gallery-overlay {
