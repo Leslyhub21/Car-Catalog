@@ -6,7 +6,7 @@ const Suscribe = () => {
   const [email, setEmail] = useState("");
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Previene el comportamiento por defecto del form
+    e.preventDefault();
 
     try {
       const res = await fetch("http://localhost:3000/suscribe", {
@@ -26,18 +26,10 @@ const Suscribe = () => {
           confirmButtonText: "Ir a Gmail",
           cancelButtonText: "Cerrar",
           showClass: {
-            popup: `
-      animate__animated
-      animate__fadeInUp
-      animate__faster
-    `,
+            popup: `animate__animated animate__fadeInUp animate__faster`,
           },
           hideClass: {
-            popup: `
-      animate__animated
-      animate__fadeOutDown
-      animate__faster
-    `,
+            popup: `animate__animated animate__fadeOutDown animate__faster`,
           },
         }).then((result) => {
           if (result.isConfirmed) {
@@ -48,21 +40,22 @@ const Suscribe = () => {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Algo salio mal!",
+          text: "Algo salió mal!",
         });
       }
     } catch (error) {
       console.error("Error al enviar el formulario", error);
-      setMensaje("Error en el servidor.");
     }
   };
 
   return (
     <div className="suscribe-container">
-      <div className="pentagon-left"></div>
-      <div className="pentagon-left2"></div>
       <div className="suscribe-left">
         <div className="suscribe-box">
+          {/* Pentágonos dentro del box para escalar */}
+          <div className="pentagon-left"></div>
+          <div className="pentagon-left2"></div>
+
           <div className="suscribe-box2">
             <h2 className="suscribe-title">NEWSLETTER</h2>
             <p className="suscribe-text">
@@ -77,8 +70,8 @@ const Suscribe = () => {
         <div className="suscribe-form">
           <form onSubmit={handleSubmit}>
             <input
-            value={email}
-              onChange={(e)=>{setEmail(e.target.value)}}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               type="email"
               placeholder="EMAIL"
               className="suscribe-input"
