@@ -13,10 +13,16 @@
     "@tailwindcss/vite": "^4.1.11",
     "bootstrap": "^5.3.7",
     "bootstrap-icons": "^1.13.1",
+    "rc-slider": "^11.1.8",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
+<<<<<<< HEAD
     "react-router-dom": "^7.7.0",
+=======
+    "react-range": "^1.10.0",
+    "swiper": "^11.2.10",
+>>>>>>> c868c8bc587f66fc1f497f1b08afdddbdc5850e5
     "sweetalert2": "^11.22.2",
     "tailwindcss": "^4.1.11"
   },

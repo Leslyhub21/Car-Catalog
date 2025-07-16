@@ -1,154 +1,148 @@
-ul{
+ul {
   margin: 0;
   padding: 0;
+  list-style: none; /* Añade esta línea para eliminar los puntos de lista */
 }
 
-/* Top bar
-a {
-  text-decoration: none;
-  color: inherit;
-}
-*/
-.nosubrayado{
+.nosubrayado {
   text-decoration: none;
 }
 
 /* Top bar */
 .top-bar {
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   background: #111;
   color: #fff;
   padding: 0.5rem 2rem;
   font-size: 0.9rem;
 }
+
 .top-bar-left .social-icon {
   margin-right: 1rem;
   color: #fff;
   font-size: 1rem;
-  justify-content:left ;
 }
+
 .top-bar-left .social-icon:hover {
   color: #e0ad24;
 }
-.top-bar-right{
-    position: relative;
-    display: flex;
-    border-right-color: white;
-    border-right: 40px;
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
 }
 
 .top-bar-right > a:first-child {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 /* Main nav */
 .main-nav {
   display: flex;
-   align-items: center;
-   justify-content:center;
-   padding: .5rem;
-   background: #fff;
-   border-bottom: 1px solid #eee;
-   box-sizing: border-box;
-   position: relative;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+  position: relative;
 }
+
 .nav-left {
   position: absolute;
-   /* Ajusta estos valores para la posición exacta del logo */
-   top: 70px; /* Intenta centrar verticalmente */
-   left: 130px; /* Ajusta la distancia desde el borde izquierdo */
-   transform: translateY(-50%); /* Corrige el centrado vertical */
-   z-index: 20; /* Asegura que esté por encima de otros elementos */
-   padding: 5px;
-   
+  top: 70px;
+  left: 130px;
+  transform: translateY(-50%);
+  z-index: 20;
+  padding: 5px;
 }
 
 .nav-left .logo {
-   height: 120px; /* Mantiene la altura del logo */
-   width: 120px; /* Mantiene el ancho del logo */
-   object-fit: contain;
-   display: block;
+  height: 120px;
+  width: 120px;
+  object-fit: contain;
+  display: block;
 }
+
 .nav-links {
   display: flex;
   align-items: center;
   gap: 2rem;
+  list-style: none; /* Asegúrate de que esta línea esté aquí también para la lista de navegación principal */
 }
+
 .nav-links li {
   position: relative;
 }
+
 .nav-links a {
   font-weight: 500;
   color: #333;
 }
+
 .nav-links a:hover {
   color: #e0ad24;
 }
 
 /* Dropdown */
+.dropdown > a {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown > a > svg {
+  margin-left: 0.5rem;
+}
+
 .dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
   background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: none;
   min-width: 150px;
   z-index: 10;
+  list-style: none; /* Asegúrate de que esta línea esté aquí para los menús desplegables */
 }
+
 .dropdown-menu li a {
   display: block;
   padding: 0.5rem 1rem;
   color: #333;
 }
+
 .dropdown-menu li a:hover {
   background: #f5f5f5;
 }
+
 .dropdown:hover .dropdown-menu {
   display: block;
 }
 
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
 .btn-post {
   background-color: white;
-  border-color: #cf8e0d ;
+  border: 1px solid #cf8e0d;
   color: #111;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   font-weight: 600;
 }
 
-/*
-.btn-post:hover {
-  background: #cf8e0d;
-  color: black;
+/* | */
+.palito {
+  position: relative;
+  font-size: 18px;
+  font-weight: bolder;
+  margin: 0 8px;
 }
-*/
 
 .link-auth {
   font-size: 0.9rem;
   color: white;
-  margin-left: 8px ;
 }
 
-/* | */
-.palito{
-    position: absolute;
-    bottom: 4px;
-    left: 43%;
-    font-size: 18px;
-    font-weight: bolder;
-}
-
-/* Afecta Texto Login Register*/
 .link-auth:hover {
   color: #e0ad24;
 }
-
-

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaGoogle, FaInstagram } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaGoogle, FaInstagram, FaAngleDown } from 'react-icons/fa';
 import logo from '../assets/img/logo.jpg'; 
 import './Navbar.css';
 
@@ -15,44 +15,40 @@ const Navbar = () => {
           <a href="https://www.instagram.com/" className="social-icon"><FaInstagram /></a>
         </div>
         <div className="top-bar-center">
-          <span>Give us a call: +66666666</span>
+          <span>GIVE US A CALL: +66666666</span>
         </div>
-        <div className='top-bar-right'>
-          <a href="" className="link-auth nosubrayado">LOGIN</a>
-          <span className='palito'>|</span>
-          <a href="" className="link-auth nosubrayado">REGISTER</a>
+        <div className="top-bar-right">
+          <a href="#" className="link-auth nosubrayado">LOGIN</a>
+          <span className="palito">|</span>
+          <a href="#" className="link-auth nosubrayado">REGISTER</a>
         </div>
       </div>
 
       {/* Main nav */}
       <nav className="main-nav">
         <div className="nav-left">
-           <img src="/src/assets/img/logo.jpg" alt="Collection Garage" className="logo" />
+          <img src={logo} alt="Collection Garage" className="logo" />
         </div>
         <ul className="nav-links">
-          <a href="#" className='nosubrayado'>HOME</a>
+          <a href="#" className="nosubrayado">HOME</a>
           <li className="dropdown">
-            <a href="#" className='nosubrayado'>CATEGORIES</a>
+            <a href="#" className="nosubrayado">CATEGORIES <FaAngleDown /></a>
             <ul className="dropdown-menu">
-              <li><a href="#" className='nosubrayado'>CLASSIC</a></li>
-              <li><a href="#" className='nosubrayado'>SPORTS</a></li>
-              <li><a href="#" className='nosubrayado'>LUXURY</a></li>
+              <li><a href="#" className="nosubrayado">CLASSIC</a></li>
+              <li><a href="#" className="nosubrayado">SPORTS</a></li>
+              <li><a href="#" className="nosubrayado">LUXURY</a></li>
             </ul>
           </li>
           <li className="dropdown">
-            <a href="#" className='nosubrayado'>DEALERS</a>
+            <a href="#" className="nosubrayado">DEALERS <FaAngleDown /></a>
             <ul className="dropdown-menu">
-              <li><a href="#" className='nosubrayado'>DEALER A</a></li>
-              <li><a href="#" className='nosubrayado'>DEALER B</a></li>
+              <li><a href="#" className="nosubrayado">DEALER A</a></li>
+              <li><a href="#" className="nosubrayado">DEALER B</a></li>
             </ul>
           </li>
-          <li><a href="#" className='nosubrayado'>CONTAC</a></li>
+          <li><a href="#" className="nosubrayado">CONTACT</a></li>
           <a href="#" className="btn-post nosubrayado">POST NEW CAR</a>
         </ul>
-        <div className="nav-right">
-          
-          
-        </div>
       </nav>
     </header>
   );
