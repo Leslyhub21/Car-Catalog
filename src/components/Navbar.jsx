@@ -18,9 +18,9 @@ const Navbar = () => {
           <span>Give us a call: +66666666</span>
         </div>
         <div className='top-bar-right'>
-          <a href="" className="link-auth">LOGIN</a>
+          <a href="" className="link-auth nosubrayado">LOGIN</a>
           <span className='palito'>|</span>
-          <a href="" className="link-auth">REGISTER</a>
+          <a href="" className="link-auth nosubrayado">REGISTER</a>
         </div>
       </div>
 
@@ -30,24 +30,24 @@ const Navbar = () => {
            <img src="/src/assets/img/logo.jpg" alt="Collection Garage" className="logo" />
         </div>
         <ul className="nav-links">
-          <li><a href="#">Home</a></li>
+          <a href="#" className='nosubrayado'>HOME</a>
           <li className="dropdown">
-            <a href="#">Categories</a>
+            <a href="#" className='nosubrayado'>CATEGORIES</a>
             <ul className="dropdown-menu">
-              <li><a href="#">Classic</a></li>
-              <li><a href="#">Sports</a></li>
-              <li><a href="#">Luxury</a></li>
+              <li><a href="#" className='nosubrayado'>CLASSIC</a></li>
+              <li><a href="#" className='nosubrayado'>SPORTS</a></li>
+              <li><a href="#" className='nosubrayado'>LUXURY</a></li>
             </ul>
           </li>
           <li className="dropdown">
-            <a href="#">Dealers</a>
+            <a href="#" className='nosubrayado'>DEALERS</a>
             <ul className="dropdown-menu">
-              <li><a href="#">Dealer A</a></li>
-              <li><a href="#">Dealer B</a></li>
+              <li><a href="#" className='nosubrayado'>DEALER A</a></li>
+              <li><a href="#" className='nosubrayado'>DEALER B</a></li>
             </ul>
           </li>
-          <li><a href="#">Contact</a></li>
-          <a href="#" className="btn-post">Post New Car</a> 
+          <li><a href="#" className='nosubrayado'>CONTAC</a></li>
+          <a href="#" className="btn-post nosubrayado">POST NEW CAR</a>
         </ul>
         <div className="nav-right">
           
