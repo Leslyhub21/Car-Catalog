@@ -18,8 +18,16 @@ const Suscribe = () => {
 
       <div className="suscribe-right">
         <div className="suscribe-form">
-          <input type="email" placeholder="EMAIL" className="suscribe-input" />
-          <button className="suscribe-button">SUBSCRIBE</button>
+           <form action="https://15b37d9dc761.ngrok-free.app/suscribe" method="POST">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="EMAIL"
+              className="suscribe-input"
+            />
+            <button className="suscribe-button">SUBSCRIBE</button>
+          </form>
         </div>
       </div>
 

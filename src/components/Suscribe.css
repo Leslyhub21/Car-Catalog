@@ -16,6 +16,7 @@
     background-color: transparent;
     position: relative;
     overflow: hidden;
+    
 }
 
 .suscribe-box {
@@ -81,12 +82,11 @@
     overflow: hidden;
 }
 
-.suscribe-form {
+.suscribe-form form {
     background: rgba(0, 0, 0, 0.4);
     padding: 20px 30px;
     border: 1px solid #fff;
     display: flex;
-    flex-direction: column;
     gap: 15px;
     z-index: 2;
     position: absolute;
@@ -97,10 +97,13 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    flex-direction: column;
 }
 
 .suscribe-input {
     padding: 10px;
+    margin-bottom: 10px;
+    width: 50%;
     border: none;
     border-bottom: 1px solid #fff;
     background: transparent;
@@ -116,13 +119,15 @@
 
 .suscribe-button {
     padding: 10px;
+    width: 50%;
+    height: 60px;
     border: 1px solid #fff;
     background: transparent;
     color: #fff;
     cursor: pointer;
-    letter-spacing: 3px;
-    font-weight: bold;
     transition: background 0.3s, color 0.3s;
+    letter-spacing: 0.5rem;
+    font-weight: 400;
 }
 
 .suscribe-button:hover {
@@ -133,14 +138,18 @@
 .suscribe-title {
     font-weight: bold;
     font-size: 1.5rem;
-    letter-spacing: 3px;
     margin-bottom: 20px;
+    letter-spacing: 0.5rem;
+    padding-left: 40px;
+    margin-top: 20px;
 }
 
 .suscribe-text {
     color: #333;
     font-size: 1rem;
     line-height: 1.6;
+    padding-left: 40px;
+    margin-top: 20px;
 }
 
 @media (max-width: 768px) {
@@ -173,7 +182,4 @@
         display: none;
     }
 
-    .suscribe-form {
-        padding: 15px 20px;
-    }
 }
