@@ -1,14 +1,16 @@
-header, ul {
+ul{
   margin: 0;
   padding: 0;
 }
+
+/* Top bar
 a {
   text-decoration: none;
   color: inherit;
 }
-body {
-  margin-top: 0
-  
+*/
+.nosubrayado{
+  text-decoration: none;
 }
 
 /* Top bar */
@@ -44,8 +46,8 @@ body {
 .main-nav {
   display: flex;
    align-items: center;
-   justify-content: space-between;
-   padding: 1rem 2rem;
+   justify-content:center;
+   padding: .5rem;
    background: #fff;
    border-bottom: 1px solid #eee;
    box-sizing: border-box;
@@ -114,21 +116,28 @@ body {
 }
 
 .btn-post {
-  background: #e0ad24;
+  background-color: white;
+  border-color: #cf8e0d ;
   color: #111;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   font-weight: 600;
 }
+
+/*
 .btn-post:hover {
   background: #cf8e0d;
+  color: black;
 }
+*/
 
 .link-auth {
   font-size: 0.9rem;
   color: white;
   margin-left: 8px ;
 }
+
+/* | */
 .palito{
     position: absolute;
     bottom: 4px;
@@ -136,6 +145,8 @@ body {
     font-size: 18px;
     font-weight: bolder;
 }
+
+/* Afecta Texto Login Register*/
 .link-auth:hover {
   color: #e0ad24;
 }
