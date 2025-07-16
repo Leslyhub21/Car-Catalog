@@ -15,59 +15,63 @@
     justify-content: center;
     background-color: transparent;
     position: relative;
-    overflow: hidden;
-    
+    overflow: visible;
+    z-index: 10;
 }
 
 .suscribe-box {
-    padding: 5px 5px;
-    max-width: 500px;
+    padding: 2% 2%;
+    max-width: 90%;
+    width: 100%;
     text-align: left;
     background-color: transparent;
     border: 3px solid goldenrod;
     border-right: 0;
-    z-index: 3;
+    z-index: 20;
     position: relative;
-    height: 425px;
+    height: clamp(300px, 55vh, 425px);
 }
 
 .suscribe-box2 {
-    padding: 115px 50px;
-    max-width: 500px;
+    padding: clamp(100px, 12vh, 140px) clamp(20px, 5vw, 50px);
+    max-width: 90%;
+    width: 100%;
     text-align: left;
     border: 1px solid goldenrod;
     background-color: transparent;
     border-right: 0;
+    /* Igual que arriba */
     position: relative;
-    z-index: 4;
-    height: 410px;
+    z-index: 20;
+    height: clamp(300px, 52vh, 410px);
 }
 
-/* Pentágonos con tamaño fijo en px */
 .pentagon-left {
     position: absolute;
-    left: 442px;
+    left: calc(76% + 10px);
     top: 50%;
-    width: 300px;
-    height: 300px;
+    width: clamp(150px, 25vw, 288px);
+    aspect-ratio: 1 / 1;
     background-color: transparent;
     border-top: 3px solid goldenrod;
     border-right: 3px solid goldenrod;
     transform: translateY(-50%) rotate(45deg);
-    z-index: 2;
+    z-index: 30;
+    pointer-events: none;
 }
 
 .pentagon-left2 {
     position: absolute;
-    left: 442px;
+    left: calc(76% + 8px);
     top: 50%;
-    width: 290px;
-    height: 290px;
+    width: clamp(150px, 24vw, 265px);
+    aspect-ratio: 1 / 1;
     background-color: transparent;
     border-top: 1px solid goldenrod;
     border-right: 1px solid goldenrod;
     transform: translateY(-50%) rotate(45deg);
-    z-index: 2;
+    z-index: 30;
+    pointer-events: none;
 }
 
 .suscribe-right {
@@ -80,6 +84,8 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
+    z-index: 0;
+    min-height: 300px;
 }
 
 .suscribe-form form {
@@ -119,8 +125,8 @@
 
 .suscribe-button {
     padding: 10px;
-    width: 50%;
-    height: 60px;
+    width: clamp(150px, 50%, 300px);
+    height: clamp(40px, 8vh, 60px);
     border: 1px solid #fff;
     background: transparent;
     color: #fff;
@@ -137,7 +143,7 @@
 
 .suscribe-title {
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
     margin-bottom: 20px;
     letter-spacing: 0.5rem;
     padding-left: 40px;
@@ -152,7 +158,8 @@
     margin-top: 20px;
 }
 
-@media (max-width: 768px) {
+/* Media Queries para pantallas pequeñas y medianas */
+@media (max-width: 1024px) {
     .suscribe-container {
         flex-direction: column;
         min-height: 400px;
@@ -160,21 +167,13 @@
 
     .suscribe-left,
     .suscribe-right {
-        flex: 100%;
+        width: 100%;
+        flex: 1 1 100%;
         height: auto;
     }
 
-    .suscribe-box {
-        padding: 30px 15px;
-        max-width: 100%;
-        height: auto;
-        margin: 3px solid goldenrod;
-    }
-
-    .suscribe-box2 {
-        padding: 60px 20px;
-        height: auto;
-        margin: 3px solid goldenrod;
+    .suscribe-right {
+        min-height: 300px;
     }
 
     .pentagon-left,
@@ -182,4 +181,25 @@
         display: none;
     }
 
+    .suscribe-box,
+    .suscribe-box2 {
+        border-right: 3px solid goldenrod;
+        border: 3px solid goldenrod;
+        padding: 8% 5%;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .suscribe-container {
+        min-height: 400px;
+    }
+
+    .suscribe-left,
+    .suscribe-right {
+        height: auto;
+    }
 }
