@@ -75,11 +75,19 @@ const Suscribe = () => {
 
       <div className="suscribe-right">
         <div className="suscribe-form">
+<<<<<<< HEAD
+           <form action="https://15b37d9dc761.ngrok-free.app/suscribe" method="POST">
+            <input
+              type="email"
+              name="email"
+              id="email"
+=======
           <form onSubmit={handleSubmit}>
             <input
             value={email}
               onChange={(e)=>{setEmail(e.target.value)}}
               type="email"
+>>>>>>> 31ddc217c9f59018b073edf62c2ba9e5f354a4c4
               placeholder="EMAIL"
               className="suscribe-input"
             />
