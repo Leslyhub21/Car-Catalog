@@ -16,6 +16,9 @@ ul {
   color: #fff;
   padding: 0.5rem 2rem;
   font-size: 0.9rem;
+  font-family: 'Montserrat', sans-serif;
+  
+  font-weight: 400;
 }
 
 .top-bar-left .social-icon {
@@ -47,15 +50,41 @@ ul {
   border-bottom: 1px solid #eee;
   box-sizing: border-box;
   position: relative;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.1rem;
+  font-weight: 400;
 }
+
 
 .nav-left {
   position: absolute;
-  top: 70px;
-  left: 130px;
+  margin-top: 15%;
+  left: 10%;
   transform: translateY(-50%);
   z-index: 20;
   padding: 5px;
+}
+
+@media (max-width: 480px) {
+  .nav-left {
+  position: absolute;
+  margin-top: 250px;
+  left: 10%;
+  transform: translateY(-50%);
+  z-index: 20;
+  padding: 5px;
+}
+}
+
+@media (max-width: 768px) {
+  .nav-left {
+  position: absolute;
+  margin-top: 260px;
+  left: 10%;
+  transform: translateY(-50%);
+  z-index: 20;
+  padding: 5px;
+}
 }
 
 .nav-left .logo {
