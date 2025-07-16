@@ -1,9 +1,8 @@
-import React from 'react'
 
-export const prueba = () => {
+const Prueba = () => {
   return (
     <div>
-
+        <p>HOla</p>
         <div
       class="calendly-inline-widget"
       data-url="https://calendly.com/ic3386941/reunion-con-el-cliente"
@@ -20,4 +19,4 @@ export const prueba = () => {
   )
 }
 
-export default prueba;
+export default Prueba;
