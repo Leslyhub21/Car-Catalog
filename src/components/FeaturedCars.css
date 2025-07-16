@@ -1,5 +1,5 @@
 .featured-container {
-  max-width: 1400px;
+   max-width: 1400px;
   margin: auto;
 }
 
@@ -9,7 +9,7 @@
   color: #000E4D;
   letter-spacing: 1rem;
   margin-bottom: 3rem;
-      font-weight: 300;
+  font-weight: 300;
 
 }
 
@@ -17,11 +17,12 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-  align-items: stretch; /* Asegura que los hijos ocupen toda la altura */
+  align-items: stretch; 
   gap: 2.5rem;
-  border: 1px solid #CBAE67;
+  border: 1.5px solid #CBAE67;
+  border-right-width: 1px; 
   border-radius: 0.25rem;
-  padding: 0; /* Elimina padding vertical para que la imagen toque los bordes */
+  padding: 0 2.5rem 0 0; 
   background: none;
   min-height: 420px;
   box-sizing: border-box;
@@ -38,7 +39,7 @@
   display: flex;
   align-items: stretch;
   justify-content: center;
-  height: 100%; /* Ocupa toda la altura del contenedor */
+  height: 100%; 
 }
 
 .featured-img {
@@ -46,7 +47,7 @@
   max-width: 100%;
   border-radius: 0;
   box-shadow: none;
-  height: 100%; /* Ocupa toda la altura del contenedor */
+  height: 100%;
   object-fit: cover;
   margin: 0;
 }
@@ -58,7 +59,7 @@
   width: 100%;
   box-sizing: border-box;
   padding: 2.5rem 1.5rem;
-  margin: 3.5rem 0.5rem; /* Margen vertical para separar del borde superior e inferior */
+  margin: 3.5rem 0.5rem;
   background: #fff;
   border: 1px solid #CBAE67;
   border-radius: 0.25rem;
@@ -68,7 +69,7 @@
   align-items: center;
   text-align: center;
   justify-content: center;
-  height: calc(100% - 3rem); /* Ajusta la altura para compensar el margen vertical */
+  height: calc(100% - 3rem); 
   min-height: unset;
   overflow: hidden;
 }
@@ -94,6 +95,14 @@
   font-size: 1rem;
   color: #6c757d;
   margin-bottom: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+  min-width: 260px;
+
+}
+
+.price1 {
+  -webkit-line-clamp: 2;
 }
 
 .featured-card-mini .price {
@@ -196,11 +205,38 @@
 @media (max-width: 768px) {
   .featured-row {
     flex-direction: column;
-    align-items: center ;
-    padding: 1rem 0;
+    align-items: stretch;
+    padding: 0.5rem 0;
+    gap: 1rem;
+    border-radius: 0.25rem;
+    min-height: unset;
   }
   .featured-card-mini, .featured-image {
-    max-width: 90vw;
-    min-width: unset;
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+    border-radius: 0.25rem;
+    flex: 1 1 100%;
+    box-sizing: border-box;
+  }
+  .featured-card-mini {
+    padding: 1.2rem 0.7rem;
+    margin: 0.5rem 0;
+    height: auto;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .featured-img {
+    height: 220px;
+    min-height: 160px;
+    max-height: 40vw;
+    object-fit: cover;
+    border-radius: 0.25rem;
+  }
+  .featured-title {
+    font-size: 1.3rem;
+    letter-spacing: 0.3rem;
+    margin-bottom: 1.2rem;
   }
 }
