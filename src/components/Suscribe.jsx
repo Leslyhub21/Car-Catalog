@@ -16,7 +16,7 @@ const Suscribe = () => {
         },
         body: JSON.stringify({ email }),
       });
-
+      setEmail("");
       if (res.ok) {
         Swal.fire({
           title: "Te has suscrito con éxito",
