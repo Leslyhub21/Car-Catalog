@@ -65,17 +65,6 @@ ul {
   padding: 5px;
 }
 
-@media (max-width: 480px) {
-  .nav-left {
-  position: absolute;
-  margin-top: 250px;
-  left: 10%;
-  transform: translateY(-50%);
-  z-index: 20;
-  padding: 5px;
-}
-}
-
 @media (max-width: 768px) {
   .nav-left {
   position: absolute;
@@ -86,6 +75,14 @@ ul {
   padding: 5px;
 }
 }
+
+@media (max-width: 480px) {
+  .nav-left {
+    display: none;
+  }
+} 
+
+
 
 .nav-left .logo {
   height: 120px;
@@ -174,4 +171,94 @@ ul {
 
 .link-auth:hover {
   color: #e0ad24;
+}
+
+/* ... (mantén tus estilos existentes) ... */
+
+/* Hamburguesa para móviles */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+/* Estilos para móviles (480px) */
+@media (max-width: 480px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    background: #fff;
+    flex-direction: column;
+    padding-top: 60px;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .nav-links > li {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    display: none;
+    width: 100%;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: block;
+  }
+
+  .btn-post {
+    margin: 10px auto;
+  }
+
+  /* Ocultar flecha en desktop */
+  .dropdown > a > svg {
+    display: inline-block;
+  }
+}
+
+/* Ajustes para hover solo en desktop */
+@media (min-width: 481px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+/* Mantener logo visible en móviles */
+@media (max-width: 480px) {
+  .nav-left {
+    display: block;
+    position: static;
+    transform: none;
+    margin-top: 0;
+    text-align: center;
+    padding: 10px 0;
+    
+  }
+
+  .main-nav {
+    flex-direction: column;
+    position: relative;
+  }
 }
