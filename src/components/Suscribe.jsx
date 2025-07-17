@@ -16,21 +16,17 @@ const Suscribe = () => {
         },
         body: JSON.stringify({ email }),
       });
+
       setEmail("");
+
       if (res.ok) {
         Swal.fire({
-          title: "Te has suscrito con éxito",
+          title: "¡Te has suscrito con éxito!",
           text: "Te hemos enviado un correo. Puedes revisarlo en Gmail.",
           icon: "success",
           showCancelButton: true,
           confirmButtonText: "Ir a Gmail",
           cancelButtonText: "Cerrar",
-          showClass: {
-            popup: `animate__animated animate__fadeInUp animate__faster`,
-          },
-          hideClass: {
-            popup: `animate__animated animate__fadeOutDown animate__faster`,
-          },
         }).then((result) => {
           if (result.isConfirmed) {
             window.open("https://mail.google.com", "_blank");
@@ -40,45 +36,42 @@ const Suscribe = () => {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Algo salió mal!",
+          text: "Algo salió mal.",
         });
       }
     } catch (error) {
-      console.error("Error al enviar el formulario", error);
+      console.error("Error al enviar el formulario:", error);
     }
   };
 
   return (
     <div className="suscribe-container">
       <div className="suscribe-left">
-        <div className="suscribe-box">
-          {/* Pentágonos dentro del box para escalar */}
-          <div className="pentagon-left"></div>
-          <div className="pentagon-left2"></div>
-
-          <div className="suscribe-box2">
-            <h2 className="suscribe-title">NEWSLETTER</h2>
-            <p className="suscribe-text">
-              Subscribe to the COLLECTIONCARS mailing list to receive updates on
-              new arrivals, special offers and other discount information.
-            </p>
-          </div>
+        <div className="suscribe-content-box">
+          <h2 className="suscribe-title">NEWSLETTER</h2>
+          <p className="suscribe-text">
+            Subscribe to the COLLECTIONCARS mailing list to receive updates on
+            new arrivals, special offers and other discount information.
+          </p>
         </div>
       </div>
 
       <div className="suscribe-right">
-        <div className="suscribe-form">
-          <form onSubmit={handleSubmit}>
+        <form className="suscribe-form" onSubmit={handleSubmit}>
+          <div className="suscribe-form-content">
             <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               type="email"
               placeholder="EMAIL"
               className="suscribe-input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
-            <button className="suscribe-button">SUBSCRIBE</button>
-          </form>
-        </div>
+            <button type="submit" className="suscribe-button">
+              SUSCRIBE
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

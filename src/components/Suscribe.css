@@ -3,119 +3,97 @@
     width: 100%;
     min-height: 600px;
     font-family: 'Montserrat', sans-serif;
-    position: relative;
-    overflow: hidden;
-    padding: 0 10px;
+    overflow: visible;
+    flex-wrap: wrap;
+    padding: 0 40px;
+    box-sizing: border-box;
 }
 
 .suscribe-left {
-    flex: 1;
+    flex-grow: 1.5;
+    flex-shrink: 0;
+    flex-basis: 0;
+    position: relative;
+    right: -10%;
+    background-image: url('../assets/fondos.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
-    position: relative;
-    overflow: visible;
-    z-index: 10;
-}
-
-.suscribe-box {
-    padding: 2% 2%;
-    max-width: 90%;
-    width: 100%;
-    text-align: left;
-    background-color: transparent;
-    border: 3px solid goldenrod;
-    border-right: 0;
-    z-index: 20;
-    position: relative;
-    height: clamp(300px, 55vh, 425px);
-}
-
-.suscribe-box2 {
-    padding: clamp(100px, 12vh, 140px) clamp(20px, 5vw, 50px);
-    max-width: 90%;
-    width: 100%;
-    text-align: left;
-    border: 1px solid goldenrod;
-    background-color: transparent;
-    border-right: 0;
-    /* Igual que arriba */
-    position: relative;
-    z-index: 20;
-    height: clamp(300px, 52vh, 410px);
-}
-
-.pentagon-left {
-    position: absolute;
-    left: calc(76% + 10px);
-    top: 50%;
-    width: clamp(150px, 25vw, 288px);
-    aspect-ratio: 1 / 1;
-    background-color: transparent;
-    border-top: 3px solid goldenrod;
-    border-right: 3px solid goldenrod;
-    transform: translateY(-50%) rotate(45deg);
-    z-index: 30;
-    pointer-events: none;
-}
-
-.pentagon-left2 {
-    position: absolute;
-    left: calc(76% + 8px);
-    top: 50%;
-    width: clamp(150px, 24vw, 265px);
-    aspect-ratio: 1 / 1;
-    background-color: transparent;
-    border-top: 1px solid goldenrod;
-    border-right: 1px solid goldenrod;
-    transform: translateY(-50%) rotate(45deg);
-    z-index: 30;
-    pointer-events: none;
+    z-index: 3;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .suscribe-right {
-    flex: 1;
+    flex: 0 0 50%;
+    position: relative;
+    /* IMPORTANTE para que el form absoluto funcione */
     background-image: url('../assets/carro3.jpg');
     background-size: cover;
     background-position: center;
+    min-height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
-    z-index: 0;
-    min-height: 300px;
+    z-index: 1;
 }
 
-.suscribe-form form {
-    background: rgba(0, 0, 0, 0.4);
-    padding: 20px 30px;
-    border: 1px solid #fff;
-    display: flex;
-    gap: 15px;
-    z-index: 2;
+.suscribe-content-box {
+    background: transparent;
+    max-width: 450px;
+    text-align: left;
+    color: #333;
+}
+
+.suscribe-title {
+    font-weight: bold;
+    font-size: 1.8rem;
+    letter-spacing: 0.2rem;
+    margin-bottom: 20px;
+}
+
+.suscribe-text {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Formulario */
+.suscribe-form {
     position: absolute;
+    /* Cubre todo el contenedor derecho */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
-    flex-direction: column;
+    border: 1px solid #fff;
+    z-index: 2;
+    max-width: none;
 }
 
 .suscribe-input {
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 50%;
-    border: none;
-    border-bottom: 1px solid #fff;
-    background: transparent;
-    color: #fff;
+    padding: 12px;
     font-size: 16px;
+    border: none;
+    border-bottom: 2px solid white;
+    background: transparent;
+    color: white;
     outline: none;
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
 }
 
 .suscribe-input::placeholder {
@@ -124,82 +102,112 @@
 }
 
 .suscribe-button {
-    padding: 10px;
-    width: clamp(150px, 50%, 300px);
-    height: clamp(40px, 8vh, 60px);
-    border: 1px solid #fff;
+    padding: 15px;
+    font-size: 16px;
     background: transparent;
-    color: #fff;
+    color: white;
+    border: 2px solid white;
     cursor: pointer;
-    transition: background 0.3s, color 0.3s;
-    letter-spacing: 0.5rem;
-    font-weight: 400;
+    transition: all 0.3s ease;
+    letter-spacing: 0.2rem;
+    width: 100%;
+    max-width: 350px;
 }
 
 .suscribe-button:hover {
-    background: #fff;
-    color: #000;
+    background: white;
+    color: black;
 }
 
-.suscribe-title {
-    font-weight: bold;
-    font-size: clamp(1.2rem, 2.5vw, 2rem);
-    margin-bottom: 20px;
-    letter-spacing: 0.5rem;
-    padding-left: 40px;
-    margin-top: 20px;
-}
+/* Responsive */
 
-.suscribe-text {
-    color: #333;
-    font-size: 1rem;
-    line-height: 1.6;
-    padding-left: 40px;
-    margin-top: 20px;
-}
-
-/* Media Queries para pantallas pequeñas y medianas */
+/* Pantallas medianas */
 @media (max-width: 1024px) {
     .suscribe-container {
-        flex-direction: column;
-        min-height: 400px;
+        padding: 0 20px;
     }
 
-    .suscribe-left,
-    .suscribe-right {
-        width: 100%;
-        flex: 1 1 100%;
-        height: auto;
+    .suscribe-left {
+        right: -5%;
+        min-height: 600px;
     }
 
     .suscribe-right {
-        min-height: 300px;
-    }
-
-    .pentagon-left,
-    .pentagon-left2 {
-        display: none;
-    }
-
-    .suscribe-box,
-    .suscribe-box2 {
-        border-right: 3px solid goldenrod;
-        border: 3px solid goldenrod;
-        padding: 8% 5%;
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin: 0 auto;
+        flex: 1 1 50%;
+        min-height: 600px;
     }
 }
 
+/* Móviles */
 @media (max-width: 768px) {
     .suscribe-container {
-        min-height: 400px;
+        flex-direction: column;
+        padding: 0 15px;
     }
 
-    .suscribe-left,
+    .suscribe-left {
+        width: 100%;
+        min-height: 500px;
+        right: 0;
+        background-size: contain;
+        padding: 30px;
+    }
+
     .suscribe-right {
-        height: auto;
+        width: 100%;
+        min-height: 400px;
+        position: relative;
+        /* mantener para que el form absoluto funcione */
+        background-size: cover;
+    }
+
+    .suscribe-content-box {
+        max-width: 100%;
+    }
+
+    .suscribe-form {
+        /* MANTENER posición absoluta y tamaño completo para cubrir la imagen */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        padding: 20px 30px;
+        box-sizing: border-box;
+    }
+
+    .suscribe-input,
+    .suscribe-button {
+        max-width: 100%;
+    }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .suscribe-content-box {
+        padding: 15px;
+    }
+
+    .suscribe-title {
+        font-size: 1.4rem;
+    }
+
+    .suscribe-text {
+        font-size: 0.9rem;
+    }
+
+    .suscribe-form {
+        padding: 15px;
+    }
+
+    .suscribe-input {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .suscribe-button {
+        font-size: 14px;
+        padding: 12px;
     }
 }
