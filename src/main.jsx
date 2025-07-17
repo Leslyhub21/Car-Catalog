@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/formulariogmail" element={<Formulary />} />
+        <Route path="/Form" element={<Formulary />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

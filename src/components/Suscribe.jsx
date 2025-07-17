@@ -36,11 +36,24 @@ const Suscribe = () => {
         Swal.fire({
           icon: "error",
           title: "Oops...",
+<<<<<<< HEAD
           text: "Algo salió mal.",
         });
       }
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
+=======
+          text: "Algo salió mal de parte del servidor!",
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Algo salió mal al enviar el formulario!",
+      });
+      console.error("Error al enviar el formulario", error);
+>>>>>>> fc2ad8d5ea16b07da95031927f3ed1aefe782f54
     }
   };
 
