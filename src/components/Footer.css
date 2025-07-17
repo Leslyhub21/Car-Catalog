@@ -44,6 +44,12 @@
     transition: color 0.2s, border-bottom 0.2s;
     font-weight: 300;
     letter-spacing: 2px;
+    text-decoration: none; /* hace que los <a> parezcan botones */
+}
+
+.footer-link-btn:hover {
+    color: #007bff;
+    text-decoration: underline;
 }
 
 @media (max-width: 600px) {
@@ -105,7 +111,6 @@
     }
 }
 
-/* ✅ Footer bar responsivo */
 .footer-bar {
     width: 95%;
     background-color: #111;
