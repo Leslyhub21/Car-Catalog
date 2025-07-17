@@ -1,9 +1,25 @@
-import React from 'react';
-import { FaFacebookF, FaTwitter, FaGoogle, FaInstagram, FaAngleDown } from 'react-icons/fa';
-import logo from '../assets/img/logo.jpg'; 
+import React, { useState } from 'react';
+import { FaFacebookF, FaTwitter, FaGoogle, FaInstagram, FaAngleDown, FaBars, FaTimes } from 'react-icons/fa';
+import logo from '../assets/img/logo.jpg';
 import './Navbar.css';
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    if (isMenuOpen) setOpenDropdown(null);
+  };
+
+  const handleDropdownClick = (name) => {
+    if (openDropdown === name) {
+      setOpenDropdown(null);
+    } else {
+      setOpenDropdown(name);
+    }
+  };
+
   return (
     <header>
       {/* Top bar */}
@@ -29,25 +45,52 @@ const Navbar = () => {
         <div className="nav-left">
           <img src={logo} alt="Collection Garage" className="logo" />
         </div>
-        <ul className="nav-links">
-          <a href="#" className="nosubrayado">HOME</a>
-          <li className="dropdown">
-            <a href="#" className="nosubrayado">CATEGORIES <FaAngleDown /></a>
+
+        {/* Hamburguesa para móviles */}
+        <div className="hamburger" onClick={toggleMenu}>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+
+        <ul className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
+          <li><a href="#" className="nosubrayado">HOME</a></li>
+          
+          <li className={`dropdown ${openDropdown === 'categories' ? 'open' : ''}`}>
+            <a 
+              href="#" 
+              className="nosubrayado" 
+              onClick={(e) => {
+                e.preventDefault();
+                handleDropdownClick('categories');
+              }}
+            >
+              CATEGORIES <FaAngleDown />
+            </a>
             <ul className="dropdown-menu">
               <li><a href="#" className="nosubrayado">CLASSIC</a></li>
               <li><a href="#" className="nosubrayado">SPORTS</a></li>
               <li><a href="#" className="nosubrayado">LUXURY</a></li>
             </ul>
           </li>
-          <li className="dropdown">
-            <a href="#" className="nosubrayado">DEALERS <FaAngleDown /></a>
+          
+          <li className={`dropdown ${openDropdown === 'dealers' ? 'open' : ''}`}>
+            <a 
+              href="#" 
+              className="nosubrayado"
+              onClick={(e) => {
+                e.preventDefault();
+                handleDropdownClick('dealers');
+              }}
+            >
+              DEALERS <FaAngleDown />
+            </a>
             <ul className="dropdown-menu">
               <li><a href="#" className="nosubrayado">DEALER A</a></li>
               <li><a href="#" className="nosubrayado">DEALER B</a></li>
             </ul>
           </li>
+          
           <li><a href="#" className="nosubrayado">CONTACT</a></li>
-          <a href="#" className="btn-post nosubrayado">POST NEW CAR</a>
+          <li><a href="#" className="btn-post nosubrayado">POST NEW CAR</a></li>
         </ul>
       </nav>
     </header>
