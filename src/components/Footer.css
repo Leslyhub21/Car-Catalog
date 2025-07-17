@@ -44,6 +44,12 @@
     transition: color 0.2s, border-bottom 0.2s;
     font-weight: 300;
     letter-spacing: 2px;
+    text-decoration: none; /* hace que los <a> parezcan botones */
+}
+
+.footer-link-btn:hover {
+    color: #007bff;
+    text-decoration: underline;
 }
 
 @media (max-width: 600px) {
@@ -107,7 +113,6 @@
 
 .footer-bar {
     width: 95%;
-    height: 37px;
     background-color: #111;
     color: white;
     display: flex;
@@ -117,40 +122,30 @@
     padding: 0 20px;
     font-size: 13px;
     border-radius: 6px;
-    min-width: 0;
+    flex-wrap: wrap;
     box-sizing: border-box;
+    text-align: center;
+    gap: 8px;
 }
 
-@media (max-width: 700px) {
-    .footer-bar {
-        width: 99%;
-        padding: 0 8px;
-        font-size: 12px;
-        margin: 10px auto;
-    }
-}
-
-.footer-bar-left {
-    margin-left: 100px;
-}
-
+.footer-bar-left,
 .footer-bar-right {
-    margin-right: 100px;
+    flex: 1;
+    min-width: 250px;
+    margin: 0 auto;
 }
 
-@media (max-width: 800px) {
-    .footer-bar-left,
-    .footer-bar-right {
-        margin-left: 20px;
-        margin-right: 20px;
+@media (max-width: 600px) {
+    .footer-bar {
+        flex-direction: column;
+        font-size: 12px;
+        padding: 10px;
     }
-}
 
-@media (max-width: 500px) {
     .footer-bar-left,
     .footer-bar-right {
-        margin-left: 5px;
-        margin-right: 5px;
+        margin: 5px 0;
+        min-width: unset;
     }
 }
 
