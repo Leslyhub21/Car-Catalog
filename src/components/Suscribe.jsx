@@ -45,11 +45,7 @@ const Suscribe = () => {
         title: "Oops...",
         text: "Algo salió mal al enviar el formulario!",
       });
-<<<<<<< HEAD
       console.error("Error al enviar el formulario", error);
-=======
-      setEmail("");
->>>>>>> e0f5f4d2ad1073105062c1ba81df52a82686fbb7
     }
   };
 
