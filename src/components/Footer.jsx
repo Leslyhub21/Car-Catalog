@@ -30,16 +30,6 @@ const Footer = () => {
                     <a href="https://instagram.com"><i className="bi bi-instagram"></i></a>
                 </div>
             </div>
-            <br />
-
-            <div className="footer-bar">
-                <div className="footer-bar-left">
-                    <p>©Copy right 2025 | Privacy | Policy</p>
-                </div>
-                <div className="footer-bar-right">
-                    <p>Designed by <span className='footer-highlight'>Web Domus Italia - Web Agency</span></p>
-                </div>
-            </div>
         </div>
     );
 };

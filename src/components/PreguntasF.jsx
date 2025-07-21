@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './PreguntasF.css'
+import './PreguntasF.css';
+import './Footer.css';
 
 const faqData = [
   {
@@ -24,18 +25,32 @@ export default function Faq() {
   };
 
   return (
-    <section className="faq">
-      <h2>Preguntas Frecuentes</h2>
-      {faqData.map((item, index) => (
-        <div key={index} className="faq-item">
-          <button className="faq-question" onClick={() => toggle(index)}>
-            {item.question}
-          </button>
-          <div className={`faq-answer ${openIndex === index ? 'open' : ''}`}>
-            <p>{item.answer}</p>
+    <>
+      <section className="faq">
+        <h2>Preguntas Frecuentes</h2>
+        {faqData.map((item, index) => (
+          <div key={index} className="faq-item">
+            <button className="faq-question" onClick={() => toggle(index)}>
+              {item.question}
+            </button>
+            <div className={`faq-answer ${openIndex === index ? 'open' : ''}`}>
+              <p>{item.answer}</p>
+            </div>
           </div>
+        ))}
+      </section>
+
+      {/* Footer */}
+      <div className="footer-bar">
+        <div className="footer-bar-left">
+          <p>©Copy right 2025 | Privacy | Policy</p>
         </div>
-      ))}
-    </section>
+        <div className="footer-bar-right">
+          <p>
+            Designed by <span className="footer-highlight">Web Domus Italia - Web Agency</span>
+          </p>
+        </div>
+      </div>
+    </>
   );
 }
