@@ -18,7 +18,7 @@ const Footer = () => {
                 <a href="/newsletter" className="footer-link-btn">RECEIVE OUR NEWSLETTER</a>
             </div>
 
-            <div className="footer-text-block">
+            <div className="footer-text-block"> 
                 <br />
                 <br />
                 <p>Lorem ipsum dolor sit amet consectetur sed do eiusmod tempor incididunt, <br />Quis voluptatum expedita.</p>

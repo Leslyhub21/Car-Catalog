@@ -5,6 +5,7 @@ import Suscribe from './components/Suscribe'
 import FeaturedCars from './components/feacturesCard'
 import Gallery from './components/gallery'
 import Footer from './components/Footer'
+import PreguntasF from './components/PreguntasF'
 
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
       <br />
       <br />
       <Footer />
+      <br />
+      <PreguntasF />
 
     </>
   )
