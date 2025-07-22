@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FaFacebookF, FaTwitter, FaGoogle, FaInstagram, FaAngleDown, FaBars, FaTimes } from 'react-icons/fa';
 import logo from '../assets/img/logo.jpg';
 import './Navbar.css';
@@ -34,9 +35,9 @@ const Navbar = () => {
           <span>GIVE US A CALL: +66666666</span>
         </div>
         <div className="top-bar-right">
-          <a href="#" className="link-auth nosubrayado">LOGIN</a>
+          <Link to="/Login" state={{ initialPanel: 'login' }} className="link-auth nosubrayado">LOGIN</Link>
           <span className="palito">|</span>
-          <a href="#" className="link-auth nosubrayado">REGISTER</a>
+          <Link to="/Login" state={{ initialPanel: 'register' }} className="link-auth nosubrayado">REGISTER</Link>
         </div>
       </div>
 
