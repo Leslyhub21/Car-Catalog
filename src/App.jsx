@@ -6,7 +6,7 @@ import FeaturedCars from './components/feacturesCard'
 import Gallery from './components/gallery'
 import Footer from './components/Footer'
 import Login from './components/login.jsx'
-
+import PreguntasF from './components/PreguntasF.jsx'
 
 function App() {
   
@@ -26,6 +26,8 @@ function App() {
       <br />
       <Footer />
       <br />
+      <PreguntasF />
+
 
     </>
   )

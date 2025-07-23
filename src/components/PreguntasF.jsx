@@ -1,0 +1,66 @@
+import React, { useState } from 'react';
+import './PreguntasF.css';
+import './Footer.css';
+
+const faqData = [
+  {
+    question: '¿Cómo me registro?',
+    answer: 'Para registrarte, haz clic en "Crear cuenta" y llena el formulario.'
+  },
+  {
+    question: '¿Puedo cambiar mi contraseña?',
+    answer: 'Sí, desde tu perfil puedes cambiarla en cualquier momento.'
+  },
+  {
+    question: '¿Ofrecen soporte técnico?',
+    answer: 'Sí, puedes contactarnos 24/7 por el formulario de contacto.'
+  },
+  {
+    question: '¿Ofrecen financiamiento?',
+    answer: 'Sí, trabajamos con diversas instituciones financieras para ofrecerte planes de financiamiento accesibles.'
+  },
+  {
+    question: '¿Puedo comprar un auto sin historial crediticio?',
+    answer: 'Sí, contamos con planes especiales para personas sin historial crediticio. Se analiza cada caso individualmente.'
+  }
+];
+
+export default function Faq() {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggle = (index) => {
+    setOpenIndex(index === openIndex ? null : index);
+  };
+
+  return (
+    <>
+      <section className="faq">
+        <h2>Preguntas Frecuentes</h2>
+        {faqData.map((item, index) => (
+          <div key={index} className="faq-item">
+            <button className="faq-question" onClick={() => toggle(index)}>
+              {item.question}
+              <i
+                className={`bi bi-chevron-down arrow-icon ${openIndex === index ? 'open' : ''}`}
+              ></i>
+            </button>
+            <div className={`faq-answer ${openIndex === index ? 'open' : ''}`}>
+              <p>{item.answer}</p>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <div className="footer-bar">
+        <div className="footer-bar-left">
+          <p>©Copy right 2025 | Privacy | Policy</p>
+        </div>
+        <div className="footer-bar-right">
+          <p>
+            Designed by <span className="footer-highlight">Web Domus Italia - Web Agency</span>
+          </p>
+        </div>
+      </div>
+    </>
+  );
+}
