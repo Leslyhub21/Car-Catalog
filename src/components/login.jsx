@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import "./Login.css";
 
@@ -40,6 +41,8 @@ const Login = () => {
               <a href="#"><i className='bx bxl-github'></i></a>
               <a href="#"><i className='bx bxl-linkedin'></i></a>
             </div>
+            <br />
+            <Link to="/" className="btn boton-link-texto">Regresar a la página</Link>
           </form>
         </div>
 
