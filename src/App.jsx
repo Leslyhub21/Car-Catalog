@@ -5,7 +5,7 @@ import Suscribe from './components/Suscribe'
 import FeaturedCars from './components/feacturesCard'
 import Gallery from './components/gallery'
 import Footer from './components/Footer'
-import PreguntasF from './components/PreguntasF'
+import Login from './components/login.jsx'
 
 
 function App() {
@@ -26,7 +26,6 @@ function App() {
       <br />
       <Footer />
       <br />
-      <PreguntasF />
 
     </>
   )
