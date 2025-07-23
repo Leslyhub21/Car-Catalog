@@ -5,9 +5,13 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+    background-image: url('../assets/img/fondo.jpg'); /* o la ruta correcta */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 20px;
 }
+
 
 .boton-link-texto {
     display: flex;
@@ -54,10 +58,18 @@
     right: 0;
     width: 50%;
     height: 100%;
-    background: #fff;
+    background-image: url('../assets/fondo-login.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
     display: flex;
     align-items: center;
-    color: #333;
+    color: #e0ad24;
     text-align: center;
     padding: 40px;
     z-index: 1;
@@ -118,7 +130,7 @@
 .login-container .btn {
     width: 100%;
     height: 48px;
-    background: #7494ec;
+    background: #e0ad24;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border: none;
@@ -133,13 +145,15 @@
     justify-content: center;
 }
 
+
+/* Estilos para los íconos sociales */
 .login-container .social-icons a {
     display: inline-flex;
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 8px;
     font-size: 24px;
-    color: #333;
+    color: #e0ad24;
     margin: 0 8px;
 }
 
@@ -155,7 +169,7 @@
     left: -250%;
     width: 300%;
     height: 100%;
-    background: #7494ec;
+    background: #e0ad24;
     border-radius: 150px;
     z-index: 2;
     transition: 1.8s ease-in-out;
