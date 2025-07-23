@@ -39,7 +39,6 @@ const Login = () => {
               <a href="#"><i className='bx bxl-google'></i></a>
               <a href="#"><i className='bx bxl-facebook'></i></a>
               <a href="#"><i className='bx bxl-github'></i></a>
-              <a href="#"><i className='bx bxl-linkedin'></i></a>
             </div>
             <br />
             <Link to="/" className="btn boton-link-texto">Regresar a la página</Link>
@@ -67,14 +66,13 @@ const Login = () => {
               <a href="#"><i className='bx bxl-google'></i></a>
               <a href="#"><i className='bx bxl-facebook'></i></a>
               <a href="#"><i className='bx bxl-github'></i></a>
-              <a href="#"><i className='bx bxl-linkedin'></i></a>
             </div>
           </form>
         </div>
 
         <div className="toggle-box">
           <div className="toggle-panel toggle-left">
-            <h1>¡Hola, Bienvenido</h1>
+            <h1>¡Bienvenido de Nuevo</h1>
             <h2>A Trocas San Jose!!</h2>
             <p>¿No tienes una cuenta?</p>
             <button className="btn register-btn" onClick={() => setActive(true)}>Registrate</button>
@@ -82,7 +80,7 @@ const Login = () => {
 
 
           <div className="toggle-panel toggle-right">
-            <h1>¡Bienvenido de Nuevo</h1>
+            <h1>¡Hola, Bienvenido</h1>
             <h2>A Trocas San Jose!!</h2>
             <p>¿Ya tienes una cuenta?</p>
             <button className="btn login-btn" onClick={() => setActive(false)}>Inicia Sesión</button>
