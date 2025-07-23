@@ -5,9 +5,13 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+    background-image: url('../assets/img/fondo.jpg'); /* o la ruta correcta */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 20px;
 }
+
 
 .boton-link-texto {
     display: flex;
@@ -133,13 +137,15 @@
     justify-content: center;
 }
 
+
+/* Estilos para los íconos sociales */
 .login-container .social-icons a {
     display: inline-flex;
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 8px;
     font-size: 24px;
-    color: #333;
+    color: #ff0303;
     margin: 0 8px;
 }
 
