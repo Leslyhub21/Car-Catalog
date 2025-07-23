@@ -58,10 +58,18 @@
     right: 0;
     width: 50%;
     height: 100%;
-    background: #fff;
+    background-image: url('../assets/fondo-login.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
     display: flex;
     align-items: center;
-    color: #333;
+    color: #e0ad24;
     text-align: center;
     padding: 40px;
     z-index: 1;
@@ -145,7 +153,7 @@
     border: 2px solid #ccc;
     border-radius: 8px;
     font-size: 24px;
-    color: #ff0303;
+    color: #e0ad24;
     margin: 0 8px;
 }
 
