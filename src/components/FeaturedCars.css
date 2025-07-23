@@ -74,6 +74,8 @@
   overflow: hidden;
 }
 
+
+
 .featured-card-mini > * {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -101,8 +103,14 @@
 
 }
 
-.price1 {
-  -webkit-line-clamp: 2;
+.price{
+  position: relative;
+}
+
+.price::after{
+  content: "€";
+  position: absolute;
+
 }
 
 .featured-card-mini .price {

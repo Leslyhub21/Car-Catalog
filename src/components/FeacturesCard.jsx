@@ -29,7 +29,7 @@ const FeaturedCars = () => {
             "Lorem ipsum dolor sit amet, consectetur, sed do eiusmod tempor incididunt"
           </p>
           <p className="price">
-            P r i c e €
+            P r i c e 
           </p>
           <button>Read More</button>
         </div>
@@ -45,7 +45,6 @@ const FeaturedCars = () => {
           </p>
           <p className="price">
             P r i c e 
-            €
           </p>
           <button>Read More</button>
         </div>
