@@ -72,17 +72,17 @@ const Login = () => {
 
         <div className="toggle-box">
           <div className="toggle-panel toggle-left">
-            <h1>¡Bienvenido de Nuevo</h1>
-            <h2>A Trocas San Jose!!</h2>
-            <p>¿No tienes una cuenta?</p>
+            <h1 className="texto-bienvenida">¡Bienvenido de Nuevo</h1>
+            <h2 className="texto-bienvenida">A Trocas San Jose!!</h2>
+            <p className="texto-bienvenida">¿No tienes una cuenta?</p>
             <button className="btn register-btn" onClick={() => setActive(true)}>Registrate</button>
           </div>
 
 
           <div className="toggle-panel toggle-right">
-            <h1>¡Hola, Bienvenido</h1>
-            <h2>A Trocas San Jose!!</h2>
-            <p>¿Ya tienes una cuenta?</p>
+            <h1 className="texto-bienvenida">¡Hola, Bienvenido</h1>
+            <h2 className="texto-bienvenida">A Trocas San Jose!!</h2>
+            <p className="texto-bienvenida">¿Ya tienes una cuenta?</p>
             <button className="btn login-btn" onClick={() => setActive(false)}>Inicia Sesión</button>
           </div>
         </div>
