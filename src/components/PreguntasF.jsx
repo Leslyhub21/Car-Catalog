@@ -49,18 +49,6 @@ export default function Faq() {
             </div>
           </div>
         ))}
-      </section>
-
-      <div className="footer-bar">
-        <div className="footer-bar-left">
-          <p>©Copy right 2025 | Privacy | Policy</p>
-        </div>
-        <div className="footer-bar-right">
-          <p>
-            Designed by <span className="footer-highlight">Web Domus Italia - Web Agency</span>
-          </p>
-        </div>
-      </div>
-    </>
+      </section>    </>
   );
 }

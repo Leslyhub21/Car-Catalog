@@ -24,9 +24,9 @@ function App() {
       <Suscribe />
       <br />
       <br />
-      <Footer />
-      <br />
       <PreguntasF />
+      <br />
+      <Footer />
 
 
     </>
