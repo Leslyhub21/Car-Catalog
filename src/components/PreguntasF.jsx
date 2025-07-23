@@ -14,6 +14,14 @@ const faqData = [
   {
     question: '¿Ofrecen soporte técnico?',
     answer: 'Sí, puedes contactarnos 24/7 por el formulario de contacto.'
+  },
+  {
+    question: '¿Ofrecen financiamiento?',
+    answer: 'Sí, trabajamos con diversas instituciones financieras para ofrecerte planes de financiamiento accesibles.'
+  },
+  {
+    question: '¿Puedo comprar un auto sin historial crediticio?',
+    answer: 'Sí, contamos con planes especiales para personas sin historial crediticio. Se analiza cada caso individualmente.'
   }
 ];
 
@@ -32,6 +40,9 @@ export default function Faq() {
           <div key={index} className="faq-item">
             <button className="faq-question" onClick={() => toggle(index)}>
               {item.question}
+              <i
+                className={`bi bi-chevron-down arrow-icon ${openIndex === index ? 'open' : ''}`}
+              ></i>
             </button>
             <div className={`faq-answer ${openIndex === index ? 'open' : ''}`}>
               <p>{item.answer}</p>
@@ -40,7 +51,6 @@ export default function Faq() {
         ))}
       </section>
 
-      {/* Footer */}
       <div className="footer-bar">
         <div className="footer-bar-left">
           <p>©Copy right 2025 | Privacy | Policy</p>
