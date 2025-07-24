@@ -81,7 +81,7 @@ const Login = () => {
             <button type="submit" className="btn">Inicia Sesión</button>
             <p>o inicia sesión con plataformas sociales</p>
             <div className="social-icons">
-              <a href="/login/federated/google"><i className="bx bxl-google"></i></a>
+              <a href="http://localhost:3000/auth/google"><i className="bx bxl-google"></i></a>
               <a href="#"><i className="bx bxl-facebook"></i></a>
               <a href="#"><i className="bx bxl-github"></i></a>
             </div>
