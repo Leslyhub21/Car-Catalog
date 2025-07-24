@@ -4,6 +4,22 @@ ul {
   list-style: none; /* Añade esta línea para eliminar los puntos de lista */
 }
 
+.user-email {
+  font-weight: bold;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.btn-logout {
+  margin-left: 10px;
+  padding: 6px 12px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .nosubrayado {
   text-decoration: none;
 }
