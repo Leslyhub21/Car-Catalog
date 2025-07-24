@@ -86,9 +86,7 @@ const Login = () => {
               <a href="#"><i className="bx bxl-github"></i></a>
             </div>
             <br />
-            <a href="/" className="btn boton-link-texto" onClick={handleReturn}>
-              Regresar a la página
-            </a>
+           
           </form>
         </div>
 
@@ -123,12 +121,20 @@ const Login = () => {
             <h2 className="texto-bienvenida">A Trocas San Jose!!</h2>
             <p className="texto-bienvenida">¿No tienes una cuenta?</p>
             <button className="btn register-btn" onClick={() => setActive(true)}>Regístrate</button>
+            <br />
+            <a href="/"  className="boton-link-texto" onClick={handleReturn}>
+            Regresar a la página
+            </a>
           </div>
           <div className="toggle-panel toggle-right">
             <h1 className="texto-bienvenida">¡Hola, Bienvenido</h1>
             <h2 className="texto-bienvenida">A Trocas San Jose!!</h2>
             <p className="texto-bienvenida">¿Ya tienes una cuenta?</p>
             <button className="btn login-btn" onClick={() => setActive(false)}>Inicia Sesión</button>
+            <br />
+            <a href="/" className="boton-link-texto" onClick={handleReturn}>
+            Regresar a la página
+            </a>
           </div>
         </div>
       </div>
