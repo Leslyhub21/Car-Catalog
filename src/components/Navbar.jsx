@@ -199,7 +199,7 @@ const Navbar = () => {
             </a>
             {user && (
               <button onClick={handleLogout} className="btn-logout">
-                Logout
+                Cerrar Sesion
               </button>
             )}
           </li>

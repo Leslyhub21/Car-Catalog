@@ -227,6 +227,16 @@
     color: #e0ad24;
 }
 
+.btn-facebook-icon {
+    background-color: #3b5998;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 /* ==== ANIMACIONES ==== */
 @keyframes loginFadeInUp {
     from {

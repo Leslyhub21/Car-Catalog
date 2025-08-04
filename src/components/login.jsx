@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import "boxicons/css/boxicons.min.css";
 import "./Login.css";
+import FacebookLogin from "react-facebook-login";
+import { FaFacebookF } from "react-icons/fa";
+
 
 const Login = () => {
   const location = useLocation();
@@ -20,6 +23,17 @@ const Login = () => {
       setActive(false);
     }
   }, [location.state]);
+
+  const responseFacebook = (response) => {
+  console.log("Respuesta de Facebook:", response);
+  Swal.fire({
+    icon: "success",
+    title: "¡Sesión iniciada!",
+    text: `Bienvenido ${response.name}`,
+    confirmButtonColor: "#667eea",
+  });
+};
+
 
   const handleReturn = (e) => {
     e.preventDefault();
@@ -82,7 +96,20 @@ const Login = () => {
             <p>o inicia sesión con plataformas sociales</p>
             <div className="social-icons">
               <a href="http://localhost:3000/auth/google"><i className="bx bxl-google"></i></a>
-              <a href="#"><i className="bx bxl-facebook"></i></a>
+              {/*<a href=""><i className="bx bxl-facebook"></i></a> */}
+              
+              <FacebookLogin
+                appId="3139564199555683"
+                autoLoad={false}
+                fields="name,email,picture"
+                callback={responseFacebook}
+                render={renderProps => (
+                  <button onClick={renderProps.onClick} className="btn-facebook-icon">
+                    <FaFacebookF />
+                  </button>
+                )}
+              />
+              
               <a href="#"><i className="bx bxl-github"></i></a>
             </div>
             <br />
@@ -110,7 +137,7 @@ const Login = () => {
             <button type="submit" className="btn">Registrarse</button>
             <p>o regístrate en plataformas sociales</p>
             <div className="social-icons">
-              <a href="#"><i className="bx bxl-google"></i></a>
+              <a href="http://localhost:3000/auth/google"><i className="bx bxl-google"></i></a>
               <a href="#"><i className="bx bxl-facebook"></i></a>
               <a href="#"><i className="bx bxl-github"></i></a>
             </div>
