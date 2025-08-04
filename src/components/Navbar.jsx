@@ -18,9 +18,14 @@ const Navbar = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Consulta backend para saber si hay usuario autenticado
+    const fbUser = localStorage.getItem("facebookUser");
+    if (fbUser) {
+      setUser(JSON.parse(fbUser));
+      return; 
+    }
+
     fetch("http://localhost:3000/auth/profile", {
-      credentials: "include", // enviar cookies de sesión
+      credentials: "include",
     })
       .then((res) => res.json())
       .then((data) => {
@@ -55,13 +60,29 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    fetch("http://localhost:3000/auth/logout", {
-      credentials: "include",
-    }).then(() => {
-      setUser(null);
-      localStorage.removeItem("user");
-      window.location.href = "/";
-    });
+    if (window.FB) {
+      window.FB.logout(function (response) {
+        // Usuario desconectado de Facebook
+        localStorage.removeItem("facebookUser");
+        setUser(null);
+        window.location.href = "/";
+      });
+    } else {
+      localStorage.removeItem("facebookUser");
+      fetch("http://localhost:3000/auth/logout", {
+        credentials: "include",
+      })
+        .then(() => {
+          localStorage.removeItem("user");
+          setUser(null);
+          window.location.href = "/";
+        })
+        .catch(() => {
+          localStorage.removeItem("user");
+          setUser(null);
+          window.location.href = "/";
+        });
+    }
   };
 
   return (
@@ -111,7 +132,7 @@ const Navbar = () => {
               </Link>
             </>
           ) : (
-            <span className="user-email">{user.email}</span>
+            <span className="user-email">{user.name || user.email}</span>
           )}
         </div>
       </div>
@@ -133,7 +154,9 @@ const Navbar = () => {
             </a>
           </li>
 
-          <li className={`dropdown ${openDropdown === "categories" ? "open" : ""}`}>
+          <li
+            className={`dropdown ${openDropdown === "categories" ? "open" : ""}`}
+          >
             <a
               href="#"
               className="nosubrayado"
@@ -163,7 +186,9 @@ const Navbar = () => {
             </ul>
           </li>
 
-          <li className={`dropdown ${openDropdown === "dealers" ? "open" : ""}`}>
+          <li
+            className={`dropdown ${openDropdown === "dealers" ? "open" : ""}`}
+          >
             <a
               href="#"
               className="nosubrayado"

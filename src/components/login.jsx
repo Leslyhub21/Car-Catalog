@@ -7,7 +7,6 @@ import "./Login.css";
 import FacebookLogin from "react-facebook-login";
 import { FaFacebookF } from "react-icons/fa";
 
-
 const Login = () => {
   //Funcionalidad form Inicio
   const location = useLocation();
@@ -18,90 +17,89 @@ const Login = () => {
   const [resetEmail, setResetEmail] = useState("");
   //Funcionalidad form Fin
 
+
   //Campos del formulario Inicio
   const [loginUser, setLoginUser] = useState("");
   const [loginPass, setLoginPass] = useState("");
-  
+
   const [registerUser, setRegisterUser] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPass, setRegisterPass] = useState("");
   //Campos del formulario Fin
-  
-const SubmitLogin = async (e) => {
-  e.preventDefault();
-  try {
-    const res = await fetch("http://localhost:3000/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ loginUser, loginPass}),
-    });
 
-    const data = await res.json();
-
-    if (res.ok && data.success) {
-      Swal.fire({
-        title: "Inicio de sesion exitoso",
-        text: data.message,
-        icon: "success",
-        confirmButtonText: "Ok",
+  const SubmitLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ loginUser, loginPass }),
       });
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: data.message || "Algo salió mal de parte del servidor!",
-      });
-    }
-  } catch (error) {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "Error al enviar el formulario!",
-    });
-    console.error("Error al enviar el formulario", error);
-  }
-};
 
+      const data = await res.json();
 
- const SubmitRegister = async (e) => {
-  e.preventDefault();
-  try {
-    const res = await fetch("http://localhost:3000/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ registerUser, registerEmail, registerPass }),
-    });
-
-    const data = await res.json();
-
-    if (res.ok && data.success) {
-      Swal.fire({
-        title: "Registro exitoso",
-        text: data.message,
-        icon: "success",
-        confirmButtonText: "Ok",
-      });
-    } else {
+      if (res.ok && data.success) {
+        Swal.fire({
+          title: "Inicio de sesion exitoso",
+          text: data.message,
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: data.message || "Algo salió mal de parte del servidor!",
+        });
+      }
+    } catch (error) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: data.message || "Algo salió mal de parte del servidor!",
+        text: "Error al enviar el formulario!",
       });
+      console.error("Error al enviar el formulario", error);
     }
-  } catch (error) {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "Error al enviar el formulario!",
-    });
-    console.error("Error al enviar el formulario", error);
-  }
-};
+  };
 
+  const SubmitRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("http://localhost:3000/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ registerUser, registerEmail, registerPass }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        Swal.fire({
+          title: "Registro exitoso",
+          text: data.message,
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: data.message || "Algo salió mal de parte del servidor!",
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Error al enviar el formulario!",
+      });
+      console.error("Error al enviar el formulario", error);
+    }
+  };
 
   useEffect(() => {
     if (location.state?.initialPanel === "register") {
@@ -112,15 +110,22 @@ const SubmitLogin = async (e) => {
   }, [location.state]);
 
   const responseFacebook = (response) => {
-  console.log("Respuesta de Facebook:", response);
-  Swal.fire({
-    icon: "success",
-    title: "¡Sesión iniciada!",
-    text: `Bienvenido ${response.name}`,
-    confirmButtonColor: "#667eea",
-  });
-};
-
+    console.log("Respuesta de Facebook:", response);
+    localStorage.setItem(
+      "facebookUser",
+      JSON.stringify({
+        name: response.name,
+        email: response.email,
+        picture: response.picture?.data?.url || "",
+      })
+    );
+    Swal.fire({
+      icon: "success",
+      title: "¡Sesión iniciada!",
+      text: `Bienvenido ${response.name}`,
+      confirmButtonColor: "#667eea",
+    });
+  };
 
   const handleReturn = (e) => {
     e.preventDefault();
@@ -204,9 +209,24 @@ const SubmitLogin = async (e) => {
             </button>
             <p>o inicia sesión con plataformas sociales</p>
             <div className="social-icons">
-              <a href="http://localhost:3000/auth/google"><i className="bx bxl-google"></i></a>
-              <a href="#"><i className="bx bxl-facebook"></i></a>
-              <a href="#"><i className="bx bxl-github"></i></a>
+              <a href="http://localhost:3000/auth/google">
+                <i className="bx bxl-google"></i>
+              </a>
+              <FacebookLogin
+                appId="3139564199555683"
+                autoLoad={false}
+                fields="name,email,picture"
+                callback={responseFacebook}
+                render={(renderProps) => (
+                  <button
+                    onClick={renderProps.onClick}
+                    className="btn-facebook-icon"
+                  >
+                    <FaFacebookF />
+                  </button>
+                )}
+              />
+             
             </div>
             <br />
           </form>
@@ -256,9 +276,24 @@ const SubmitLogin = async (e) => {
             </button>
             <p>o regístrate en plataformas sociales</p>
             <div className="social-icons">
-              <a href="#"><i className="bx bxl-google"></i></a>
-              <a href="#"><i className="bx bxl-facebook"></i></a>
-              <a href="#"><i className="bx bxl-github"></i></a>
+              <a href="http://localhost:3000/auth/google">
+                <i className="bx bxl-google"></i>
+              </a>
+              <FacebookLogin
+                appId="3139564199555683"
+                autoLoad={false}
+                fields="name,email,picture"
+                callback={responseFacebook}
+                render={(renderProps) => (
+                  <button
+                    onClick={renderProps.onClick}
+                    className="btn-facebook-icon"
+                  >
+                    <FaFacebookF />
+                  </button>
+                )}
+              />
+              
             </div>
           </form>
         </div>
