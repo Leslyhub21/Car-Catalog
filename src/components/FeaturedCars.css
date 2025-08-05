@@ -107,10 +107,13 @@
   position: relative;
 }
 
-.price::after{
+.price::after {
   content: "€";
   position: absolute;
-
+  top: 0;
+  font-size: 1.1rem;
+  color: #1a1a2e;
+  margin-left: 0.4rem; 
 }
 
 .featured-card-mini .price {
@@ -119,6 +122,7 @@
   margin: 1.5rem 0 1rem 0;
   font-weight: 600;
   font-size: 1.1rem;
+  padding-right: 2.4rem;
 }
 
 .featured-card-mini button {
@@ -259,4 +263,41 @@
 }
 
 
+}
+.modal-desc-container {
+  position: relative;
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 2rem 1.5rem 1.2rem 1.5rem;
+  max-width: 400px;
+  width: 90vw;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-desc-title {
+  font-size: 1.6rem;
+  color: #0d2b7b;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.modal-desc-img {
+  width: 70%;
+  max-width: 220px;
+  border-radius: 0.4rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.modal-desc-text {
+  font-size: 1.1rem;
+  color: #222;
+  text-align: center;
+  margin-bottom: 1.2rem;
+  line-height: 1.4;
 }
