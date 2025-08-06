@@ -36,19 +36,22 @@ export default function Faq() {
     <>
       <section className="faq">
         <h2>Preguntas Frecuentes</h2>
-        {faqData.map((item, index) => (
-          <div key={index} className="faq-item">
-            <button className="faq-question" onClick={() => toggle(index)}>
-              {item.question}
-              <i
-                className={`bi bi-chevron-down arrow-icon ${openIndex === index ? 'open' : ''}`}
-              ></i>
-            </button>
-            <div className={`faq-answer ${openIndex === index ? 'open' : ''}`}>
-              <p>{item.answer}</p>
+        <div className="faq-list">
+          {faqData.map((item, index) => (
+            <div key={index} className="faq-item">
+              <button className="faq-question" onClick={() => toggle(index)}>
+                {item.question}
+                <i
+                  className={`bi bi-chevron-down arrow-icon ${openIndex === index ? 'open' : ''}`}
+                ></i>
+              </button>
+              <div className={`faq-answer ${openIndex === index ? 'open' : ''}`}>
+                <p>{item.answer}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </section>    </>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }
