@@ -5,7 +5,7 @@ import './Footer.css';
 const faqData = [
   {
     question: '¿Cómo me registro?',
-    answer: 'Para registrarte, haz clic en "Crear cuenta" y llena el formulario.'
+    answer: 'Para registrarte, haz clic en "Registro" y llena el formulario.'
   },
   {
     question: '¿Puedo cambiar mi contraseña?',
@@ -13,7 +13,7 @@ const faqData = [
   },
   {
     question: '¿Ofrecen soporte técnico?',
-    answer: 'Sí, puedes contactarnos 24/7 por el formulario de contacto.'
+    answer: 'Actualmente no contamos con soporte técnico.'
   },
   {
     question: '¿Ofrecen financiamiento?',
