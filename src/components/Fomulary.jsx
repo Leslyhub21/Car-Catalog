@@ -37,7 +37,7 @@ const Formulary = () => {
         window.open("https://mail.google.com", "_self");
 
         try {
-          await fetch("http://localhost:3000/enviarformulario", {
+          await fetch("http://localhost:4000/enviarformulario", {
             method: "POST",
           });
           console.log(" POST enviado");

@@ -9,15 +9,13 @@ const Suscribe = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:3000/suscribe", {
+      const res = await fetch("http://localhost:4000/suscribe", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email }),
       });
-
-      setEmail("");
 
       if (res.ok) {
         Swal.fire({
@@ -32,6 +30,7 @@ const Suscribe = () => {
             window.open("https://mail.google.com", "_blank");
           }
         });
+        setEmail("");
       } else {
         Swal.fire({
           icon: "error",
