@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   FaFacebookF,
@@ -18,23 +18,27 @@ const Navbar = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+    const localuser = localStorage.getItem("user");
+    if (localuser) {
+      setUser(JSON.parse(localuser));
+      return;
+    }
+
     const fbUser = localStorage.getItem("facebookUser");
     if (fbUser) {
       setUser(JSON.parse(fbUser));
-      return; 
+      return;
     }
 
-    fetch("http://localhost:3000/auth/profile", {
+    fetch("http://localhost:3000/auth/google/profile", {
+      method: "GET",
       credentials: "include",
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data && data.emails && data.emails.length > 0) {
-          setUser({ email: data.emails[0].value });
-          localStorage.setItem(
-            "user",
-            JSON.stringify({ email: data.emails[0].value })
-          );
+        if (data.authenticated) {
+          setUser(data.user);
+          localStorage.setItem("user", JSON.stringify(data.user));
         } else {
           setUser(null);
           localStorage.removeItem("user");
@@ -60,28 +64,37 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    if (window.FB) {
-      window.FB.logout(function (response) {
-        // Usuario desconectado de Facebook
+    // Facebook
+    if (localStorage.getItem("facebookUser")) {
+      if (window.FB) {
+        window.FB.logout(function () {
+          localStorage.removeItem("facebookUser");
+          setUser(null);
+          window.location.href = "/";
+        });
+      } else {
         localStorage.removeItem("facebookUser");
         setUser(null);
         window.location.href = "/";
-      });
-    } else {
-      localStorage.removeItem("facebookUser");
-      fetch("http://localhost:3000/auth/logout", {
+      }
+      return;
+    }
+
+    if (localStorage.getItem("user")) {
+      fetch("http://localhost:3000/logout", {
         credentials: "include",
       })
         .then(() => {
           localStorage.removeItem("user");
           setUser(null);
-          window.location.href = "/";
+          window.location.href = "/Login";
         })
         .catch(() => {
           localStorage.removeItem("user");
           setUser(null);
-          window.location.href = "/";
+          window.location.href = "/Login";
         });
+      return;
     }
   };
 
@@ -155,7 +168,9 @@ const Navbar = () => {
           </li>
 
           <li
-            className={`dropdown ${openDropdown === "categories" ? "open" : ""}`}
+            className={`dropdown ${
+              openDropdown === "categories" ? "open" : ""
+            }`}
           >
             <a
               href="#"
@@ -224,7 +239,7 @@ const Navbar = () => {
             </a>
             {user && (
               <button onClick={handleLogout} className="btn-logout">
-                Cerrar Sesion
+                Cerrar Sesión
               </button>
             )}
           </li>

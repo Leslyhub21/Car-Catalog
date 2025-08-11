@@ -13,10 +13,12 @@ const Login = () => {
   const navigate = useNavigate();
   const [active, setActive] = useState(false);
   const [animationClass, setAnimationClass] = useState("fade-in");
-  const [showResetModal, setShowResetModal] = useState(false);
-  const [resetEmail, setResetEmail] = useState("");
   //Funcionalidad form Fin
 
+  //Reset password Inicio
+  const [showResetModal, setShowResetModal] = useState(false);
+  const [resetEmail, setResetEmail] = useState("");
+  //Reset password Fin
 
   //Campos del formulario Inicio
   const [loginUser, setLoginUser] = useState("");
@@ -47,6 +49,16 @@ const Login = () => {
           icon: "success",
           confirmButtonText: "Ok",
         });
+
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            email: data.data.email,
+            user: data.data.user,
+          })
+        );
+
+        navigate("/");
       } else {
         Swal.fire({
           icon: "error",
@@ -84,6 +96,15 @@ const Login = () => {
           icon: "success",
           confirmButtonText: "Ok",
         });
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            email: data.data.email,
+            user: data.data.user,
+          })
+        );
+
+        navigate("/");
       } else {
         Swal.fire({
           icon: "error",
@@ -135,7 +156,7 @@ const Login = () => {
     }, 600);
   };
 
-  const handleResetPassword = () => {
+  const handleResetPassword = async () => {
     if (!resetEmail) {
       Swal.fire({
         icon: "warning",
@@ -146,17 +167,49 @@ const Login = () => {
       return;
     }
 
-    Swal.fire({
-      icon: "success",
-      title: "¡Correo enviado!",
-      text: `Se ha enviado un enlace de recuperación a: ${resetEmail}`,
-      showConfirmButton: false,
-      timer: 2500,
-      timerProgressBar: true,
-    });
+    try {
+      const response = await fetch("http://localhost:3000/recover", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ resetEmail }),
+      });
+      
+      if (response.ok) {
+        Swal.fire({
+          icon: "success",
+          title: "¡Correo enviado!",
+          text: `Se ha enviado un enlace de recuperación a: ${resetEmail}`,
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        });
 
-    setShowResetModal(false);
-    setResetEmail("");
+        setShowResetModal(false);
+        setResetEmail("");
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Server error",
+          text: "Error en el servidor",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        });
+      }
+    } catch (error) {
+      setShowResetModal(false);
+      setResetEmail("");
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: `Hubo un fallo al intentar enviar el correo ${error}`,
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      });
+    }
   };
 
   return (
@@ -226,7 +279,6 @@ const Login = () => {
                   </button>
                 )}
               />
-             
             </div>
             <br />
           </form>
@@ -293,7 +345,6 @@ const Login = () => {
                   </button>
                 )}
               />
-              
             </div>
           </form>
         </div>
