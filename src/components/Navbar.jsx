@@ -123,7 +123,7 @@ const Navbar = () => {
           </a>
         </div>
         <div className="top-bar-center">
-          <span>GIVE US A CALL: +66666666</span>
+          <span>- The Collector’s Garage - </span>
         </div>
         <div className="top-bar-right">
           {!user ? (

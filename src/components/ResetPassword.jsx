@@ -6,10 +6,11 @@ import { useNavigate, useParams } from "react-router-dom";
 export const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
   const { token } = useParams();
-
+  const [show, setShow] = useState(null);
+  const [show2, setShow2] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,7 +51,7 @@ export const ResetPassword = () => {
         });
         setNewPassword("");
         setConfirmPassword("");
-        navigate("/");
+        navigate("/Login");
       } else {
         Swal.fire({
           icon: "error",
@@ -82,21 +83,68 @@ export const ResetPassword = () => {
           Ingresa tu nueva contraseña y confírmala para continuar.
         </p>
 
-        <input
-          type="password"
-          placeholder="Nueva contraseña"
-          value={newPassword}
-          onChange={(e) => setNewPassword(e.target.value)}
-        />
+        <div className="input-box">
+          <input
+            type={show ? "text" : "password"}
+            placeholder="Contraseña"
+            value={newPassword}
+            onChange={(e) => {
+              setNewPassword(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => setShow(!show)}
+            type="button"
+            style={{
+              position: "absolute",
+              right: 10,
+              top: "15%",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              fontSize: "16px",
+            }}
+          >
+            {show ? (
+              <i className="bi bi-eye-fill"></i>
+            ) : (
+              <i className="bi bi-eye-slash-fill"></i>
+            )}
+          </button>
+        </div>
+        <div className="input-box">
+          <input
+            type={show2 ? "text" : "password"}
+            placeholder="Contraseña"
+            value={confirmPassword}
+            onChange={(e) => {
+              setConfirmPassword(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => setShow2(!show2)}
+            type="button"
+            style={{
+              position: "absolute",
+              right: 10,
+              top: "15%",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              fontSize: "16px",
+            }}
+          >
+            {show2 ? (
+              <i className="bi bi-eye-fill"></i>
+            ) : (
+              <i className="bi bi-eye-slash-fill"></i>
+            )}
+          </button>
+        </div>
 
-        <input
-          type="password"
-          placeholder="Confirmar nueva contraseña"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-
-        <button type="submit">Guardar contraseña</button>
+        <button className="boton_submit" type="submit">
+          Guardar contraseña
+        </button>
 
         {message && <p className="reset-message">{message}</p>}
       </form>

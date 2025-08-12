@@ -13,6 +13,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [active, setActive] = useState(false);
   const [animationClass, setAnimationClass] = useState("fade-in");
+  const [show, setShow] = useState(false);
   //Funcionalidad form Fin
 
   //Reset password Inicio
@@ -175,7 +176,9 @@ const Login = () => {
         },
         body: JSON.stringify({ resetEmail }),
       });
-      
+
+      const data = await response.json();
+
       if (response.ok) {
         Swal.fire({
           icon: "success",
@@ -192,7 +195,7 @@ const Login = () => {
         Swal.fire({
           icon: "error",
           title: "Server error",
-          text: "Error en el servidor",
+          text: data.message  ,
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true,
@@ -236,15 +239,30 @@ const Login = () => {
             </div>
             <div className="input-box">
               <input
-                value={loginPass}
-                onChange={(e) => {
-                  setLoginPass(e.target.value);
-                }}
-                type="password"
+                type={show ? "text" : "password"}
                 placeholder="Contraseña"
-                required
+                value={loginPass}
+                onChange={(e)=>{setLoginPass(e.target.value)}}
               />
-              <i className="bx bxs-lock-alt"></i>
+              <button
+                onClick={() => setShow(!show)}
+                type="button"
+                style={{
+                  position: "absolute",
+                  right: 0,
+                  top: "50%",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  fontSize: "16px",
+                }}
+              >
+                {show ? (
+                  <i className="bi bi-eye-fill"></i>
+                ) : (
+                  <i className="bi bi-eye-slash-fill"></i>
+                )}
+              </button>
             </div>
             <div className="forgot-link">
               <a
@@ -260,25 +278,17 @@ const Login = () => {
             <button type="submit" className="btn">
               Inicia Sesión
             </button>
-            <p>o inicia sesión con plataformas sociales</p>
+            <p>o inicia sesión con: </p>
             <div className="social-icons">
               <a href="http://localhost:3000/auth/google">
                 <i className="bx bxl-google"></i>
               </a>
-              <FacebookLogin
-                appId="3139564199555683"
-                autoLoad={false}
-                fields="name,email,picture"
-                callback={responseFacebook}
-                render={(renderProps) => (
-                  <button
-                    onClick={renderProps.onClick}
-                    className="btn-facebook-icon"
-                  >
-                    <FaFacebookF />
-                  </button>
-                )}
-              />
+              <a
+                href="http://localhost:3000/auth/facebook"
+                className="social-btn facebook"
+              >
+                <i className="bx bxl-facebook"></i>
+              </a>
             </div>
             <br />
           </form>
@@ -313,38 +323,45 @@ const Login = () => {
             </div>
             <div className="input-box">
               <input
-                value={registerPass}
-                onChange={(e) => {
-                  setRegisterPass(e.target.value);
-                }}
-                type="password"
+                type={show ? "text" : "password"}
                 placeholder="Contraseña"
-                required
+                value={registerPass}
+                onChange={(e)=>{setRegisterPass(e.target.value)}}
               />
-              <i className="bx bxs-lock-alt"></i>
+              <button
+                onClick={() => setShow(!show)}
+                type="button"
+                style={{
+                  position: "absolute",
+                  right: 0,
+                  top: "50%",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  fontSize: "16px",
+                }}
+              >
+                {show ? (
+                  <i className="bi bi-eye-fill"></i>
+                ) : (
+                  <i className="bi bi-eye-slash-fill"></i>
+                )}
+              </button>
             </div>
             <button type="submit" className="btn">
               Registrarse
             </button>
-            <p>o regístrate en plataformas sociales</p>
+            <p>o accede con:</p>
             <div className="social-icons">
               <a href="http://localhost:3000/auth/google">
                 <i className="bx bxl-google"></i>
               </a>
-              <FacebookLogin
-                appId="3139564199555683"
-                autoLoad={false}
-                fields="name,email,picture"
-                callback={responseFacebook}
-                render={(renderProps) => (
-                  <button
-                    onClick={renderProps.onClick}
-                    className="btn-facebook-icon"
-                  >
-                    <FaFacebookF />
-                  </button>
-                )}
-              />
+              <a
+                href="http://localhost:3000/auth/facebook"
+                className="social-btn facebook"
+              >
+                <i className="bx bxl-facebook"></i>
+              </a>
             </div>
           </form>
         </div>
@@ -352,7 +369,8 @@ const Login = () => {
         <div className="toggle-box">
           <div className="toggle-panel toggle-left">
             <h1 className="texto-bienvenida">¡Bienvenido de Nuevo</h1>
-            <h2 className="texto-bienvenida">A Trocas San Jose!!</h2>
+            <h2 className="texto-bienvenida">A The Collector’s</h2>
+            <h2 className="texto-bienvenida">Garage!</h2>
             <p className="texto-bienvenida">¿No tienes una cuenta?</p>
             <button
               className="btn register-btn"
@@ -367,7 +385,8 @@ const Login = () => {
           </div>
           <div className="toggle-panel toggle-right">
             <h1 className="texto-bienvenida">¡Hola, Bienvenido</h1>
-            <h2 className="texto-bienvenida">A Trocas San Jose!!</h2>
+            <h2 className="texto-bienvenida">A The Collector’s</h2>
+            <h2 className="texto-bienvenida">Garage!</h2>
             <p className="texto-bienvenida">¿Ya tienes una cuenta?</p>
             <button className="btn login-btn" onClick={() => setActive(false)}>
               Inicia Sesión

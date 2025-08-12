@@ -31,10 +31,10 @@ ul {
   background: #111;
   color: #fff;
   padding: 0.5rem 2rem;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   font-family: 'Montserrat', sans-serif;
-  
   font-weight: 400;
+
 }
 
 .top-bar-left .social-icon {
@@ -50,10 +50,6 @@ ul {
 .top-bar-right {
   display: flex;
   align-items: center;
-}
-
-.top-bar-right > a:first-child {
-  margin-right: 20px;
 }
 
 /* Main nav */
