@@ -4,16 +4,16 @@ import './Footer.css';
 
 const faqData = [
   {
-    question: '¿Cómo me registro?',
-    answer: 'Para registrarte, haz clic en "Registro" y llena el formulario.'
+    question: ' ¿Cómo puedo agendar una cita para ver un auto?',
+    answer: 'Da clic en el botón “Suscribir” y sigue los pasos que aparecerán en pantalla: elige la fecha y hora que más te convenga y confirma tus datos. Recibirás un correo electrónico con la confirmación de tu cita.'
   },
   {
-    question: '¿Puedo cambiar mi contraseña?',
-    answer: 'Sí, desde tu perfil puedes cambiarla en cualquier momento.'
+    question: '¿Cuándo es válida la garantía?',
+    answer: 'La garantía será válida a partir de la firma del contrato.'
   },
   {
-    question: '¿Ofrecen soporte técnico?',
-    answer: 'Actualmente no contamos con soporte técnico.'
+    question: '¿Puedo apartar un vehículo antes de comprarlo?',
+    answer: 'Sí, puedes apartar el auto con un pago inicial. El tiempo de apartado y las condiciones varían según el modelo y disponibilidad.'
   },
   {
     question: '¿Ofrecen financiamiento?',
