@@ -4,7 +4,8 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./Seccion01.css";
-import { FaMagnifyingGlass } from "react-icons/fa6";
+import { FaMagnifyingGlass, FaXmark } from "react-icons/fa6";
+import carsData from "../data/carsData.json";
 
 const Seccion01 = () => {
   const [keyword, setKeyword] = useState("");
@@ -12,21 +13,46 @@ const Seccion01 = () => {
   const [minYear, setMinYear] = useState("");
   const [maxYear, setMaxYear] = useState("");
   const [priceRange, setPriceRange] = useState([306292, 858500]);
+  const [filteredCars, setFilteredCars] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   const handleSearch = (e) => {
     e.preventDefault();
-    console.log({ keyword, category, minYear, maxYear, priceRange });
+
+    const results = carsData.filter((car) => {
+      const matchesKeyword =
+        car.name.toLowerCase().includes(keyword.toLowerCase()) ||
+        car.model.toLowerCase().includes(keyword.toLowerCase());
+
+      const matchesCategory = category ? car.category === category : true;
+      const matchesYearMin = minYear ? car.year >= parseInt(minYear) : true;
+      const matchesYearMax = maxYear ? car.year <= parseInt(maxYear) : true;
+      const matchesPrice =
+        car.price >= priceRange[0] && car.price <= priceRange[1];
+
+      return (
+        matchesKeyword &&
+        matchesCategory &&
+        matchesYearMin &&
+        matchesYearMax &&
+        matchesPrice
+      );
+    });
+
+    setFilteredCars(results);
+    setShowModal(true); // mostrar modal al buscar
   };
 
   const handlePriceChange = (index, value) => {
     const newRange = [...priceRange];
     newRange[index] = Number(value);
-
-    // Asegurar que min <= max
     if (index === 0 && newRange[0] > newRange[1]) newRange[1] = newRange[0];
     if (index === 1 && newRange[1] < newRange[0]) newRange[0] = newRange[1];
-
     setPriceRange(newRange);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   const carImages = [
@@ -69,10 +95,8 @@ const Seccion01 = () => {
       {/* Formulario de búsqueda */}
       <div className="search-container">
         <form className="search-form" onSubmit={handleSearch}>
-          <h2>SEARCH TEXT</h2> {/* Título arriba de todo */}
+          <h2>SEARCH TEXT</h2>
           <div className="search-inputs">
-            {" "}
-            {/* Contenedor para todos los inputs */}
             <input
               type="text"
               placeholder="ENTER KEYWORD"
@@ -93,7 +117,7 @@ const Seccion01 = () => {
               onChange={(e) => setMinYear(e.target.value)}
             >
               <option value="">MIN YEAR</option>
-              {Array.from({ length: 34 }, (_, i) => 1990 + i).map((year) => (
+              {Array.from({ length: 40 }, (_, i) => 1985 + i).map((year) => (
                 <option key={year} value={year}>
                   {year}
                 </option>
@@ -104,12 +128,13 @@ const Seccion01 = () => {
               onChange={(e) => setMaxYear(e.target.value)}
             >
               <option value="">MAX YEAR</option>
-              {Array.from({ length: 34 }, (_, i) => 1990 + i).map((year) => (
+              {Array.from({ length: 40 }, (_, i) => 1985 + i).map((year) => (
                 <option key={year} value={year}>
                   {year}
                 </option>
               ))}
             </select>
+
             <div className="price-slider">
               <label>
                 Price ${priceRange[0].toLocaleString()} - $
@@ -119,27 +144,69 @@ const Seccion01 = () => {
                 <input
                   type="range"
                   min="0"
-                  max="1000000"
-                  step="1000"
+                  max="1200000"
+                  step="10000"
                   value={priceRange[0]}
                   onChange={(e) => handlePriceChange(0, e.target.value)}
                 />
                 <input
                   type="range"
                   min="0"
-                  max="1000000"
-                  step="1000"
+                  max="1200000"
+                  step="10000"
                   value={priceRange[1]}
                   onChange={(e) => handlePriceChange(1, e.target.value)}
                 />
               </div>
             </div>
+
             <button type="submit" className="btn-search">
               <FaMagnifyingGlass />
             </button>
           </div>
         </form>
       </div>
+
+      {/* 🪟 Modal de resultados */}
+      {showModal && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()} // Evitar cierre al hacer clic dentro
+          >
+            <button className="close-btn" onClick={closeModal}>
+              <FaXmark />
+            </button>
+            <h2>Resultados</h2>
+            {filteredCars.length > 0 ? (
+              <div className="car-grid">
+                {filteredCars.map((car) => (
+                  <div className="car-card" key={car.id}>
+                    <img src={car.image} alt={car.name} className="car-image" />
+                    <div className="car-info">
+                      <h3>{car.name}</h3>
+                      <p>{car.model}</p>
+                      <p>
+                        <strong>Year:</strong> {car.year}
+                      </p>
+                      <p>
+                        <strong>Category:</strong> {car.category}
+                      </p>
+                      <p>
+                        <strong>Price:</strong> $
+                        {car.price.toLocaleString()}
+                      </p>
+                      <p className="car-desc">{car.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="no-results">No se encontraron resultados.</p>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 };

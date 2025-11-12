@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "Porsche 356",
+    "model": "356 Speedster",
+    "year": 1960,
+    "category": "classic",
+    "price": 820000,
+    "image": "/src/assets/img/porsche356.jpg",
+    "description": "Un clásico deportivo alemán, icónico por su diseño aerodinámico y elegancia vintage."
+  },
+  {
+    "id": 2,
+    "name": "Ferrari F40",
+    "model": "F40",
+    "year": 1992,
+    "category": "sports",
+    "price": 950000,
+    "image": "/src/assets/img/ferrariF40.jpg",
+    "description": "El legendario superdeportivo de Ferrari, famoso por su potencia y chasis ultraligero."
+  },
+  {
+    "id": 3,
+    "name": "Lamborghini Aventador",
+    "model": "LP 780-4 Ultimae",
+    "year": 2021,
+    "category": "luxury",
+    "price": 640000,
+    "image": "/src/assets/img/aventador.jpg",
+    "description": "Superauto italiano con motor V12 y un diseño agresivo que impone presencia en la carretera."
+  },
+  {
+    "id": 4,
+    "name": "Ford Mustang",
+    "model": "GT Fastback",
+    "year": 2018,
+    "category": "sports",
+    "price": 450000,
+    "image": "/src/assets/img/mustang.jpg",
+    "description": "El icónico muscle car estadounidense, mezcla perfecta de potencia, estilo y tradición."
+  },
+  {
+    "id": 5,
+    "name": "Rolls-Royce Phantom",
+    "model": "VIII",
+    "year": 2020,
+    "category": "luxury",
+    "price": 950000,
+    "image": "/src/assets/img/phantom.jpg",
+    "description": "Símbolo de lujo y confort absoluto, con interior artesanal y materiales premium."
+  },
+  {
+    "id": 6,
+    "name": "Chevrolet Camaro",
+    "model": "ZL1",
+    "year": 2019,
+    "category": "sports",
+    "price": 390000,
+    "image": "/src/assets/img/camaro.jpg",
+    "description": "Un muscle car moderno con rendimiento extremo y un diseño deportivo inconfundible."
+  },
+  {
+    "id": 7,
+    "name": "Mercedes-Benz 300SL",
+    "model": "Gullwing",
+    "year": 1957,
+    "category": "classic",
+    "price": 1100000,
+    "image": "/src/assets/img/300sl.jpg",
+    "description": "Famoso por sus puertas tipo ala de gaviota, una joya del automovilismo clásico."
+  },
+  {
+    "id": 8,
+    "name": "Tesla Model S",
+    "model": "Plaid",
+    "year": 2022,
+    "category": "luxury",
+    "price": 580000,
+    "image": "/src/assets/img/modelS.jpg",
+    "description": "Sedán eléctrico de alto rendimiento con autonomía superior y tecnología avanzada."
+  },
+  {
+    "id": 9,
+    "name": "Toyota Supra",
+    "model": "GR Supra",
+    "year": 2020,
+    "category": "sports",
+    "price": 370000,
+    "image": "/src/assets/img/supra.jpg",
+    "description": "Deportivo japonés con alma clásica y rendimiento moderno, ideal para los amantes de la velocidad."
+  },
+  {
+    "id": 10,
+    "name": "Jaguar E-Type",
+    "model": "Series 1",
+    "year": 1965,
+    "category": "classic",
+    "price": 890000,
+    "image": "/src/assets/img/jaguarEtype.jpg",
+    "description": "Considerado uno de los autos más bellos jamás creados, ícono del automovilismo británico."
+  }
+]
