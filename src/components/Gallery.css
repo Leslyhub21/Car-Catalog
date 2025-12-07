@@ -45,6 +45,29 @@
     overflow: hidden;
 }
 
+/* Delete button for posted demo items */
+.gallery-delete-btn {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    z-index: 30;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gallery-delete-btn:hover {
+    background: rgba(255,0,0,0.85);
+}
+
 @media (min-width: 768px) {
     .gallery-card {
         height: 300px;
