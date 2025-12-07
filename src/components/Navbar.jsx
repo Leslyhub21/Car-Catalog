@@ -162,7 +162,7 @@ const Navbar = () => {
 
         <ul className={`nav-links ${isMenuOpen ? "open" : ""}`}>
           <li>
-            <a href="#" className="nosubrayado">
+            <a href="/contact" className="nosubrayado">
               HOME
             </a>
           </li>
@@ -184,19 +184,40 @@ const Navbar = () => {
             </a>
             <ul className="dropdown-menu">
               <li>
-                <a href="#" className="nosubrayado">
+                <Link
+                  to="/category/classic"
+                  className="nosubrayado"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setOpenDropdown(null);
+                  }}
+                >
                   CLASSIC
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="nosubrayado">
+                <Link
+                  to="/category/sports"
+                  className="nosubrayado"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setOpenDropdown(null);
+                  }}
+                >
                   SPORTS
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="nosubrayado">
+                <Link
+                  to="/category/luxury"
+                  className="nosubrayado"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setOpenDropdown(null);
+                  }}
+                >
                   LUXURY
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
