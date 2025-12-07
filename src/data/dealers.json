@@ -1,0 +1,22 @@
+[
+  {
+    "id": "dealer-a",
+    "name": "Collector Motors A",
+    "phone": "+1 555-0100",
+    "address": "Av. Demo 123, Ciudad Ejemplo",
+    "website": "",
+    "description": "Concesionario de demostración con una selección cuidada de clásicos y deportivos.",
+    "image": "dealer-a.jpg",
+    "email": "contacto@collectormotors-a.example"
+  },
+  {
+    "id": "dealer-b",
+    "name": "Prestige Autos B",
+    "phone": "+1 555-0200",
+    "address": "Calle Falsa 456, Ciudad Ejemplo",
+    "website": "",
+    "description": "Especialistas en autos de lujo y experiencia premium para clientes exigentes.",
+    "image": "dealer-b.jpg",
+    "email": "ventas@prestigeautos-b.example"
+  }
+]
