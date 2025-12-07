@@ -237,14 +237,28 @@ const Navbar = () => {
             </a>
             <ul className="dropdown-menu">
               <li>
-                <a href="#" className="nosubrayado">
+                <Link
+                  to="/dealers/dealer-a"
+                  className="nosubrayado"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setOpenDropdown(null);
+                  }}
+                >
                   DEALER A
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="nosubrayado">
+                <Link
+                  to="/dealers/dealer-b"
+                  className="nosubrayado"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setOpenDropdown(null);
+                  }}
+                >
                   DEALER B
-                </a>
+                </Link>
               </li>
             </ul>
           </li>

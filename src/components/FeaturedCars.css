@@ -5,26 +5,25 @@
 
 .featured-title {
   text-align: center;
-  font-size: 2.5rem;
-  color: #000E4D;
-  letter-spacing: 1rem;
-  margin-bottom: 3rem;
-  font-weight: 300;
-
+  font-size: 2rem;
+  color: #0a1440;
+  letter-spacing: 0.18rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .featured-row {
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: stretch; 
-  gap: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 2rem;
   border: 1.5px solid #CBAE67;
-  border-right-width: 1px; 
+  border-right-width: 1px;
   border-radius: 0.25rem;
-  padding: 0 2.5rem 0 0; 
+  padding: 1rem;
   background: none;
-  min-height: 420px;
   box-sizing: border-box;
 }
 
@@ -33,6 +32,79 @@
   max-width: 24%;
   min-width: 220px;
   box-sizing: border-box;
+}
+
+/* Card used by CategoryView listing */
+.featured-card {
+  flex: 0 1 calc(33.333% - 2rem);
+  box-sizing: border-box;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #CBAE67;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.featured-card .featured-image {
+  width: 100%;
+  height: 260px;
+  margin-bottom: 0.8rem;
+}
+
+.featured-card .featured-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.35rem;
+  transition: transform 0.35s ease;
+}
+
+/* Hover effect: elevate card and slightly zoom image */
+.featured-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 34px rgba(10,20,64,0.12);
+}
+.featured-card:hover .featured-img {
+  transform: scale(1.06);
+}
+
+/* Grid variant used by CategoryView to make all images uniform */
+.featured-row.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+  padding: 1rem;
+}
+
+.featured-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.featured-card .featured-image {
+  height: 320px; /* uniform image height */
+  overflow: hidden;
+}
+
+.featured-card .featured-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-description {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
 }
 
 .featured-image {
@@ -54,53 +126,54 @@
 
 .featured-card-mini {
   flex: 1 1 0;
-  max-width: 24%;
-  min-width: 220px;
+  max-width: 100%;
   width: 100%;
   box-sizing: border-box;
-  padding: 2.5rem 1.5rem;
-  margin: 3.5rem 0.5rem;
+  padding: 1.4rem 1rem;
+  margin: 0.6rem 0.4rem;
   background: #fff;
   border: 1px solid #CBAE67;
   border-radius: 0.25rem;
-  box-shadow: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   justify-content: center;
-  height: calc(100% - 3rem); 
-  min-height: unset;
-  overflow: hidden;
+  min-height: 150px;
+  overflow: visible;
+  position: relative;
 }
 
 
 
 .featured-card-mini > * {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
   width: 100%;
   box-sizing: border-box;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .featured-card-mini h5 {
   color: #1a1a2e;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   font-weight: 700;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-size: 1.25rem;
+  text-transform: none;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  word-break: keep-all;
 }
 
 .featured-card-mini p {
-  font-size: 1rem;
+  font-size: 0.98rem;
   color: #6c757d;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
   width: 100%;
-  max-width: 300px;
-  min-width: 260px;
-
+  max-width: 100%;
 }
 
 .price{
@@ -108,42 +181,36 @@
 }
 
 .price::after {
-  content: "€";
-  position: absolute;
-  top: 0;
-  font-size: 1.1rem;
-  color: #1a1a2e;
-  margin-left: 0.4rem; 
+  content: "";
 }
 
 .featured-card-mini .price {
-  letter-spacing: 0.3rem;
+  letter-spacing: 0.02rem;
   color: #1a1a2e;
-  margin: 1.5rem 0 1rem 0;
-  font-weight: 600;
-  font-size: 1.1rem;
-  padding-right: 2.4rem;
+  margin: 0.8rem 0 0.6rem 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding-right: 0;
 }
 
 .featured-card-mini button {
   background-color: #0d2b7b;
   color: #fff;
   border: none;
-  padding: 0.8rem 0;
+  padding: 0.6rem 0.6rem;
   width: 100%;
-  min-width: 0;
-  max-width: 100%;
-  border-radius: 0;
-  font-size: 1.4rem;
-  font-weight: 400;
-  letter-spacing: 0.3rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   cursor: pointer;
-  transition: background 0.3s ease;
-  margin-top: 1.5rem;
+  transition: background 0.2s ease, transform 0.12s ease;
+  margin-top: 0.8rem;
 }
 
 .featured-card-mini button:hover {
-  background-color: #000E4D;
+  background-color: #0a1440;
+  transform: translateY(-2px);
 }
 
 

@@ -39,7 +39,7 @@ const FeaturedCars = () => {
   };
 
   return (
-    <div className="featured-container">
+    <div className="featured-container features-mini">
       <h2 className="featured-title">• FEATURES CARS •</h2>
       <div className="featured-row">
         {cars.map((car, idx) => (
