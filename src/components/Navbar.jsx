@@ -162,9 +162,16 @@ const Navbar = () => {
 
         <ul className={`nav-links ${isMenuOpen ? "open" : ""}`}>
           <li>
-            <a href="/contact" className="nosubrayado">
+            <Link
+              to="/"
+              className="nosubrayado"
+              onClick={() => {
+                setIsMenuOpen(false);
+                setOpenDropdown(null);
+              }}
+            >
               HOME
-            </a>
+            </Link>
           </li>
 
           <li
@@ -264,14 +271,28 @@ const Navbar = () => {
           </li>
 
           <li>
-            <a href="#" className="nosubrayado">
+            <Link
+              to="/contact"
+              className="nosubrayado"
+              onClick={() => {
+                setIsMenuOpen(false);
+                setOpenDropdown(null);
+              }}
+            >
               CONTACT
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="btn-post nosubrayado">
+            <Link
+              to="/post-car"
+              className="btn-post nosubrayado"
+              onClick={() => {
+                setIsMenuOpen(false);
+                setOpenDropdown(null);
+              }}
+            >
               POST NEW CAR
-            </a>
+            </Link>
             {user && (
               <button onClick={handleLogout} className="btn-logout">
                 Cerrar Sesión
